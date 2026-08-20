@@ -10,7 +10,7 @@ from pathlib import Path
 
 from .cache import JsonCache
 from .config import Settings
-from .csvio import read_companies, write_enriched
+from .csvio import read_companies, write_enriched, write_reference_csv
 from .logging_util import get_logger, setup_logging
 from .models import CompanyResult
 from .pipeline import run_batch
@@ -28,6 +28,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("input", help="Path to the input CSV (Company Name / City / Address).")
     parser.add_argument("--output", help="Output CSV path (default: overwrites the input file in place).")
+    parser.add_argument(
+        "--ref-output",
+        help="Reference CSV path with third-party URLs and FOUND/NOT_FOUND/AMBIGUOUS status "
+        "(default: alongside --output as '<stem>_references.csv').",
+    )
     parser.add_argument("--limit", type=int, default=None, help="Only process the first N companies (testing).")
     parser.add_argument("--cache-dir", type=Path, default=None, help="Override the cache directory.")
     parser.add_argument("--threshold", type=float, default=None, help="Entity-match confidence threshold (0-1).")
@@ -89,7 +94,7 @@ def main(argv: list[str] | None = None) -> int:
     rows = [company.original for company in companies]
     enrichments = [
         (
-            (r.extraction.website or "") if r.extraction else "",
+            _official_website(r),
             (r.extraction.business or "") if r.extraction else "",
             (r.extraction.customers or "") if r.extraction else "",
         )
@@ -98,6 +103,16 @@ def main(argv: list[str] | None = None) -> int:
 
     write_enriched(output_path, fieldnames, rows, enrichments)
     logger.info("wrote enriched CSV to %s", output_path)
+
+    ref_path = Path(args.ref_output) if args.ref_output else _default_ref_path(output_path)
+    write_reference_csv(
+        ref_path,
+        fieldnames,
+        rows,
+        [r.site_status for r in results],
+        [r.reference_urls for r in results],
+    )
+    logger.info("wrote reference CSV to %s", ref_path)
 
     if args.dump_json:
         args.dump_json.write_text(
@@ -112,6 +127,17 @@ def main(argv: list[str] | None = None) -> int:
 
     print(f"Enriched {len(results)} companies -> {output_path}")
     return 0
+
+
+def _official_website(result: CompanyResult) -> str:
+    """Return the official website URL only when the matched site was confirmed official."""
+    if result.site_status != "FOUND":
+        return ""
+    return (result.extraction.website if result.extraction else "") or result.matched_url or ""
+
+
+def _default_ref_path(output_path: Path) -> Path:
+    return output_path.with_name(f"{output_path.stem}_references{output_path.suffix}")
 
 
 if __name__ == "__main__":

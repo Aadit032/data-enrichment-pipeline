@@ -37,9 +37,18 @@ without location confirmation.
 leave a company unresolved than to attach the wrong website.
 
 Respond with ONLY a JSON object with these keys:
-{"is_match": <bool>, "confidence": <float 0-1>, "explanation": <str>, "evidence": <list[str]>}
+{"is_match": <bool>, "confidence": <float 0-1>, "explanation": <str>, "evidence": <list[str]>, "site_type": <str>}
 where "evidence" is a short list of concrete strings from the candidate page \
-(e.g. exact company name, address, pincode) that establish the match (["none"] if none).\
+(e.g. exact company name, address, pincode) that establish the match (["none"] if none), \
+and "site_type" is one of:
+- "official": ONLY if the page/domain provides evidence that it is operated by the company itself \
+(e.g. it presents itself as the company's own site, carries its official branding/contact details, \
+or the domain is clearly owned by the company).
+- "third_party": anything else that merely describes or references the company — directories, \
+aggregators, portals, news, review or data sites (e.g. tracxn.com, sensibook.com, addressadda.com, \
+qorpiq.com, tofler.in, thecompanycheck.com), even if they display the exact company name, address \
+and registration details. Such a page is a match for the entity but NOT the official website.
+- "ambiguous": it is not clear from the evidence whether the site is operated by the company itself.\
 """
 
 SYSTEM_EXTRACTION = """\
@@ -50,9 +59,14 @@ Given a target company and evidence from its VERIFIED official website, extract:
 - business: 1-3 sentence plain-English description of what the company does \
 (products/services), based only on the evidence.
 - customers: 1-2 sentence description of who its customers are (industries, \
-segments, client types), based only on the evidence. Use null if the site says nothing.
+segments, client types). If the evidence explicitly mentions customers, use it. \
+If the evidence does not mention customers, make a very calculated guess inferred \
+from the company's business/industry (who would typically buy its products/services), \
+and phrase it clearly as an inference (e.g. "Likely served industries include ..."). \
+Only use null if even the industry cannot be inferred.
 
-If the evidence does not support a field, set it to null. Do not fabricate.
+If the evidence does not support the website or business fields, set them to null. \
+Do not fabricate specific facts. For customers, a reasoned inference is expected.
 Respond with ONLY a JSON object:
 {"website": <str|null>, "business": <str|null>, "customers": <str|null>}\
 """

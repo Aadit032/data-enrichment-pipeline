@@ -16,6 +16,9 @@ ENRICHMENT_COLUMNS = [
     "Who its customers are",
 ]
 
+STATUS_COLUMN = "Status"
+URLS_COLUMN = "Found URLs"
+
 
 def _find_column(fieldnames: list[str], hint: str) -> str:
     for name in fieldnames:
@@ -80,4 +83,23 @@ def write_enriched(
             out["Official company website"] = website
             out["What the business does"] = business
             out["Who its customers are"] = customers
+            writer.writerow(out)
+
+
+def write_reference_csv(
+    output_path: str | Path,
+    fieldnames: list[str],
+    rows: list[dict[str, str]],
+    statuses: list[str],
+    url_lists: list[list[str]],
+) -> None:
+    """Write original rows with a Status column and the found reference URLs."""
+    out_fieldnames = [*fieldnames, STATUS_COLUMN, URLS_COLUMN]
+    with open(output_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=out_fieldnames, restval="", extrasaction="ignore")
+        writer.writeheader()
+        for row, status, urls in zip(rows, statuses, url_lists):
+            out = dict(row)
+            out[STATUS_COLUMN] = status
+            out[URLS_COLUMN] = "; ".join(urls)
             writer.writerow(out)

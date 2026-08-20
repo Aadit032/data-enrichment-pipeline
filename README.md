@@ -27,7 +27,7 @@ fallback).
 | Entity resolution | LLM is given the target company (name/city/address) plus each candidate domain's evidence and must answer `is_match`, `confidence (0–1)`, `explanation`, `evidence`. Matches below a confidence threshold are rejected — unresolved companies are left blank rather than guessed. |
 | Extraction | For the highest-confidence valid match, the LLM extracts the official website, a business description, and a customer description as structured JSON. |
 | Caching | Every API call (Exa searches, page fetches, entity resolution, extraction) is keyed by a content hash of its inputs and stored as JSON under `.cache/`. Reruns skip completed work → cheap, resumable, reproducible. |
-| Output | The original input CSV is written back with the three columns appended; original columns/data are preserved byte-for-byte. |
+| Output | Two CSVs: an enriched CSV with the three columns appended (official website left empty when not found) and a reference CSV with the found third-party URLs plus a FOUND / NOT_FOUND / AMBIGUOUS status. Original columns/data are preserved. |
 
 ## End-to-end pipeline architecture
 
@@ -259,6 +259,9 @@ uv run python -m src.main input.csv
 # Write to a new file instead of modifying the input
 uv run python -m src.main input.csv --output enriched.csv
 
+# Reference CSV with the third-party URLs found + FOUND/NOT_FOUND/AMBIGUOUS status
+uv run python -m src.main input.csv --output enriched.csv --ref-output references.csv
+
 # Test run on the first 5 companies
 uv run python -m src.main input.csv --limit 5
 
@@ -275,8 +278,19 @@ uv run python -m src.main input.csv --threshold 0.75
 uv run python scripts/sample_review.py results.json --sample 0.1 -o review.csv
 ```
 
-The output is the input CSV with three columns appended (`Official company website`,
-`What the business does`, `Who its customers are`). Unresolved companies get empty cells.
+The run produces **two CSVs**:
+
+- **`--output` (enriched CSV)** — the input CSV with three columns appended (`Official company
+  website`, `What the business does`, `Who its customers are`). The website is filled **only** when a
+  candidate was confirmed as the company's own official site; otherwise it is left empty.
+- **`--ref-output` (reference CSV)** — the input rows plus a `Status` column
+  (`FOUND` / `NOT_FOUND` / `AMBIGUOUS`) and a `Found URLs` column listing the URLs the pipeline
+  discovered for the company (e.g. aggregator pages such as tracxn.com, sensibook.com,
+  addressadda.com). Use this for manual review when the official site could not be confirmed.
+
+During entity resolution the LLM classifies each matched site as `official` (owned by the company),
+`third_party` (a directory/aggregator/portal that merely describes it) or `ambiguous`; that drives the
+`Status` value above.
 
 ### Resume after interruption
 

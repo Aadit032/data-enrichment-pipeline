@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import csv
 
-from src.csvio import ENRICHMENT_COLUMNS, read_companies, write_enriched
+from src.csvio import ENRICHMENT_COLUMNS, read_companies, write_enriched, write_reference_csv
 
 SAMPLE = (
     ",Company Name (legal entity),City,Address\n"
@@ -61,3 +61,28 @@ def test_write_enriched_preserves_original(tmp_path) -> None:
     assert output[0]["Address"] == companies[0].address
     assert output[0]["Official company website"] == "https://a.com"
     assert output[1]["What the business does"] == "does B"
+
+
+def test_write_reference_csv_adds_status_and_urls(tmp_path) -> None:
+    path = tmp_path / "input.csv"
+    out_path = tmp_path / "ref.csv"
+    path.write_text(SAMPLE, encoding="utf-8")
+    companies, fieldnames = read_companies(path)
+
+    rows = [c.original for c in companies]
+    statuses = ["FOUND", "AMBIGUOUS"]
+    url_lists = [["https://a.com/", "https://dir.in/a"], []]
+
+    write_reference_csv(out_path, fieldnames, rows, statuses, url_lists)
+
+    with open(out_path, newline="", encoding="utf-8-sig") as f:
+        reader = csv.DictReader(f)
+        out_fieldnames = list(reader.fieldnames or [])
+        output = list(reader)
+
+    assert out_fieldnames == fieldnames + ["Status", "Found URLs"]
+    assert output[0]["Status"] == "FOUND"
+    assert output[0]["Found URLs"] == "https://a.com/; https://dir.in/a"
+    assert output[1]["Status"] == "AMBIGUOUS"
+    assert output[1]["Found URLs"] == ""
+    assert output[0]["Company Name (legal entity)"] == "SALDANHA REAL ESTATE PRIVATE LIMITED"

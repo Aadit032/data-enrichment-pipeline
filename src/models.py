@@ -55,6 +55,7 @@ class EntityResolution(BaseModel):
     confidence: float = Field(ge=0.0, le=1.0)
     explanation: str = ""
     evidence: list[str] = Field(default_factory=list)
+    site_type: str = ""  # "official" | "third_party" | "ambiguous"
 
 
 class ExtractionResult(BaseModel):
@@ -73,4 +74,7 @@ class CompanyResult(BaseModel):
     candidates: list[DomainEvidence] = Field(default_factory=list)
     resolution: EntityResolution | None = None
     extraction: ExtractionResult | None = None
+    matched_url: str | None = None
+    site_status: str = "NOT_FOUND"  # "FOUND" | "NOT_FOUND" | "AMBIGUOUS"
+    reference_urls: list[str] = Field(default_factory=list)
     error: str | None = None

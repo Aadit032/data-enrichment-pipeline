@@ -14,7 +14,7 @@ from src.models import (
     ExtractionResult,
     PageEvidence,
 )
-from src.pipeline import Pipeline, _select_best_match
+from src.pipeline import Pipeline, _collect_reference_urls, _select_best_match, _site_status
 
 
 def make_company() -> Company:
@@ -54,13 +54,27 @@ class StubbedPipeline(Pipeline):
 
     def resolve_domain(self, company: Company, domain_evidence: DomainEvidence) -> EntityResolution:
         if domain_evidence.domain == "acme-real.com":
-            return EntityResolution(is_match=True, confidence=0.95, explanation="exact name + address", evidence=["ACME PRIVATE LIMITED", "Mumbai 400050"])
+            return EntityResolution(is_match=True, confidence=0.95, explanation="exact name + address", evidence=["ACME PRIVATE LIMITED", "Mumbai 400050"], site_type="official")
         if domain_evidence.domain == "acme-partner.com":
-            return EntityResolution(is_match=True, confidence=0.62, explanation="similar name only", evidence=["none"])
-        return EntityResolution(is_match=False, confidence=0.1, explanation="unrelated", evidence=["none"])
+            return EntityResolution(is_match=True, confidence=0.62, explanation="similar name only", evidence=["none"], site_type="third_party")
+        return EntityResolution(is_match=False, confidence=0.1, explanation="unrelated", evidence=["none"], site_type="third_party")
 
     def extract(self, company: Company, domain_evidence: DomainEvidence, resolution: EntityResolution) -> ExtractionResult:
         return ExtractionResult(website=f"https://{domain_evidence.domain}/", business="does things", customers="everyone")
+
+
+def test_site_status_maps_llm_site_type() -> None:
+    assert _site_status("official") == "FOUND"
+    assert _site_status("third_party") == "NOT_FOUND"
+    assert _site_status("ambiguous") == "AMBIGUOUS"
+    assert _site_status("") == "NOT_FOUND"
+
+
+def test_collect_reference_urls_deduplicates_across_domains() -> None:
+    a = make_evidence("acme.com")
+    b = DomainEvidence(domain="aggregator.in", pages=[PageEvidence(url="https://aggregator.in/co/acme", domain="aggregator.in")])
+    urls = _collect_reference_urls([a, b])
+    assert urls == ["https://acme.com/", "https://aggregator.in/co/acme"]
 
 
 def test_select_best_match_prefers_high_confidence() -> None:
@@ -94,8 +108,11 @@ def test_run_batch_matches_correct_company(tmp_path: Path) -> None:
     assert result.status == "matched"
     assert result.resolution is not None
     assert result.resolution.confidence == 0.95
+    assert result.resolution.site_type == "official"
+    assert result.site_status == "FOUND"
     assert result.extraction is not None
     assert result.extraction.website == "https://acme-real.com/"
+    assert result.reference_urls  # candidate pages were collected
 
 
 def test_run_batch_leaves_unresolved_without_confident_match(tmp_path: Path) -> None:

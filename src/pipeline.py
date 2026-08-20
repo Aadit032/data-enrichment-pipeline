@@ -126,6 +126,7 @@ class Pipeline:
             "domain": domain_evidence.domain,
             "evidence": [self._prompt_evidence(p) for p in domain_evidence.pages],
             "resolution_explanation": resolution.explanation,
+            "site_type": resolution.site_type,
         }
         return self.cache.get_or_compute(
             "extraction",
@@ -169,6 +170,7 @@ class Pipeline:
                 if domain_evidence.pages:
                     domains.append(domain_evidence)
             result.candidates = domains
+            result.reference_urls = _collect_reference_urls(domains)
             if not domains:
                 logger.info("no evidence fetched for %s", company.name)
                 return result
@@ -200,6 +202,8 @@ class Pipeline:
 
             domain_evidence, resolution = best
             result.resolution = resolution
+            result.matched_url = domain_evidence.pages[0].url if domain_evidence.pages else None
+            result.site_status = _site_status(resolution.site_type)
             try:
                 result.extraction = self.extract(company, domain_evidence, resolution)
                 result.status = "matched"
@@ -227,6 +231,25 @@ def _select_best_match(
         ):
             best = (domain_evidence, resolution)
     return best
+
+
+def _site_status(site_type: str) -> str:
+    """Map the LLM site classification to the FOUND / NOT_FOUND / AMBIGUOUS status."""
+    if site_type == "official":
+        return "FOUND"
+    if site_type == "ambiguous":
+        return "AMBIGUOUS"
+    return "NOT_FOUND"
+
+
+def _collect_reference_urls(domains: list[DomainEvidence]) -> list[str]:
+    """Collect the URLs of all pages that referenced the company, deduplicated."""
+    urls: list[str] = []
+    for domain_evidence in domains:
+        for page in domain_evidence.pages:
+            if page.url and page.url not in urls:
+                urls.append(page.url)
+    return urls
 
 
 def run_batch(
@@ -264,7 +287,9 @@ def _entity_resolution_prompt(payload: dict, prompt_text_chars: int) -> str:
 CANDIDATE WEBSITE EVIDENCE
 {json.dumps(evidence, indent=2, ensure_ascii=False)}
 
-Return ONLY JSON: {{"is_match": <bool>, "confidence": <float 0-1>, "explanation": <str>, "evidence": <list[str]>}}"""
+Return ONLY JSON: {{"is_match": <bool>, "confidence": <float 0-1>, "explanation": <str>, "evidence": <list[str]>, "site_type": <"official"|"third_party"|"ambiguous">}}
+site_type is "official" only when the page/domain provides evidence that it is operated by the \
+company itself; otherwise classify it as "third_party"."""
 
 
 def _extraction_prompt(payload: dict, prompt_text_chars: int) -> str:
@@ -274,13 +299,15 @@ def _extraction_prompt(payload: dict, prompt_text_chars: int) -> str:
 - City: {payload['company']['city'] or 'n/a'}
 - Address: {payload['company']['address'] or 'n/a'}
 
-VERIFIED OFFICIAL WEBSITE: {payload['domain']}
+MATCHED WEBSITE: {payload['domain']} (site type: {payload['site_type'] or 'unknown'})
 (Entity-resolution note: {payload['resolution_explanation']})
 
 WEBSITE EVIDENCE
 {json.dumps(evidence, indent=2, ensure_ascii=False)}
 
-Return ONLY JSON: {{"website": <str|null>, "business": <str|null>, "customers": <str|null>}}"""
+Return ONLY JSON: {{"website": <str|null>, "business": <str|null>, "customers": <str|null>}}
+where "website" is the company's OFFICIAL website URL only if the evidence clearly shows a \
+domain owned/operated by the company; otherwise null."""
 
 
 def _truncated_evidence(evidence: list[dict], prompt_text_chars: int) -> list[dict]:

@@ -27,9 +27,9 @@ class Settings(BaseSettings):
     openrouter_api_key: str = ""
 
     # LLM
-    openrouter_model: str = "openai/gpt-4o-mini"
-    openrouter_base_url: str = "https://openrouter.ai/api/v1"
-    # openrouter_base_url: str = "https://api.groq.com/openai/v1"
+    openrouter_model: str = "openai/gpt-oss-20b"
+    # openrouter_base_url: str = "https://openrouter.ai/api/v1"
+    openrouter_base_url: str = "https://api.groq.com/openai/v1"
     # openrouter_base_url: str = "https://api.cerebras.ai/v1"
     # openrouter_model: str = "gpt-oss-120b"
 

@@ -27,30 +27,39 @@ def _find_column(fieldnames: list[str], hint: str) -> str:
 def read_companies(path: str | Path) -> tuple[list[Company], list[str]]:
     """Read input CSV and return companies plus original header order."""
     with open(path, newline="", encoding="utf-8-sig") as f:
-        reader = csv.DictReader(f)
-        fieldnames = list(reader.fieldnames or [])
-        if not fieldnames:
+        reader = csv.reader(f)
+        header = next(reader, None)
+        if not header:
             raise ValueError(f"{path} has no header row")
+        rows = [row for row in reader if row]
 
-        name_col = _find_column(fieldnames, "company")
-        city_col = _find_column(fieldnames, "city")
-        address_col = _find_column(fieldnames, "address")
+    # Some spreadsheets export a phantom leading column whose header cell is
+    # blank (e.g. an empty "Sr No" column). If every data row starts with an
+    # empty field but the header does not, realign by prepending an empty
+    # header cell so the remaining columns line up with their names.
+    if header and header[0] != "" and all((row[0] or "").strip() == "" for row in rows):
+        header = [""] + header
 
-        companies: list[Company] = []
-        for row_index, row in enumerate(reader):
-            name = (row.get(name_col) or "").strip()
-            if not name:
-                continue
-            companies.append(
-                Company(
-                    row_index=row_index,
-                    name=name,
-                    city=(row.get(city_col) or "").strip(),
-                    address=(row.get(address_col) or "").strip(),
-                    original=dict(row),
-                )
+    name_col = _find_column(header, "company")
+    city_col = _find_column(header, "city")
+    address_col = _find_column(header, "address")
+
+    companies: list[Company] = []
+    for row_index, row in enumerate(rows):
+        record = dict(zip(header, row))
+        name = (record.get(name_col) or "").strip()
+        if not name:
+            continue
+        companies.append(
+            Company(
+                row_index=row_index,
+                name=name,
+                city=(record.get(city_col) or "").strip(),
+                address=(record.get(address_col) or "").strip(),
+                original=record,
             )
-    return companies, fieldnames
+        )
+    return companies, header
 
 
 def write_enriched(

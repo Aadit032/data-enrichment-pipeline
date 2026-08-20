@@ -25,6 +25,22 @@ def test_read_companies(tmp_path) -> None:
     assert companies[1].row_index == 1
 
 
+def test_read_companies_realigns_phantom_leading_column(tmp_path) -> None:
+    # Header cell for the empty leading column is missing, but data still has it.
+    path = tmp_path / "input.csv"
+    path.write_text(
+        "Company Name (legal entity),City,Address\n"
+        ",SALDANHA REAL ESTATE PRIVATE LIMITED,Mumbai,\"FLAT 1, HILL ROAD, BANDRA (WEST), MUMBAI, 400050-India\"\n",
+        encoding="utf-8",
+    )
+    companies, fieldnames = read_companies(path)
+    assert len(companies) == 1
+    assert fieldnames == ["", "Company Name (legal entity)", "City", "Address"]
+    assert companies[0].name == "SALDANHA REAL ESTATE PRIVATE LIMITED"
+    assert companies[0].city == "Mumbai"
+    assert "BANDRA" in companies[0].address
+
+
 def test_write_enriched_preserves_original(tmp_path) -> None:
     path = tmp_path / "input.csv"
     out_path = tmp_path / "out.csv"

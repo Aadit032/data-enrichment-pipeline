@@ -29,7 +29,6 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("input", help="Path to the input CSV (Company Name / City / Address).")
     parser.add_argument("--output", help="Output CSV path (default: overwrites the input file in place).")
     parser.add_argument("--limit", type=int, default=None, help="Only process the first N companies (testing).")
-    parser.add_argument("--max-workers", type=int, default=None, help="Number of companies processed in parallel.")
     parser.add_argument("--cache-dir", type=Path, default=None, help="Override the cache directory.")
     parser.add_argument("--threshold", type=float, default=None, help="Entity-match confidence threshold (0-1).")
     parser.add_argument("--model", default=None, help="Override the OpenRouter model.")
@@ -46,8 +45,6 @@ def main(argv: list[str] | None = None) -> int:
     setup_logging(level=logging.DEBUG if args.verbose else logging.INFO, log_file=args.log_file)
 
     settings = Settings()
-    if args.max_workers is not None:
-        settings.max_workers = args.max_workers
     if args.cache_dir is not None:
         settings.cache_dir = args.cache_dir
     if args.threshold is not None:

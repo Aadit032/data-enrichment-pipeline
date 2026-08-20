@@ -40,7 +40,7 @@ Requirements:
    - .env for EXA_API_KEY and OPENROUTER_API_KEY
    - retries/timeouts
    - logging
-   - concurrency where appropriate
+   - simple sequential execution
    - type hints
    - structured Pydantic models
    - no hardcoded company-specific logic

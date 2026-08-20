@@ -34,7 +34,7 @@ def test_fetch_html_is_cached(tmp_path) -> None:
 
     fake = _Client("<html><title>Test</title><p>hello world</p></html>")
     fetcher = Fetcher(settings, cache)
-    fetcher._local.client = fake  # type: ignore[attr-defined]
+    fetcher._client = fake  # type: ignore[assignment]
 
     html1, via1 = fetcher.fetch_html("https://example.com/")
     html2, via2 = fetcher.fetch_html("https://example.com/")
@@ -50,7 +50,7 @@ def test_fetch_cache_separates_urls(tmp_path) -> None:
     cache = JsonCache(settings.cache_dir)
     fake = _Client("<p>a</p>")
     fetcher = Fetcher(settings, cache)
-    fetcher._local.client = fake  # type: ignore[attr-defined]
+    fetcher._client = fake  # type: ignore[assignment]
 
     fetcher.fetch_html("https://example.com/a")
     fetcher.fetch_html("https://example.com/b")

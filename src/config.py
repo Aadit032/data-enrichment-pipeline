@@ -34,8 +34,7 @@ class Settings(BaseSettings):
     exa_num_results: int = 5
     max_candidates: int = 5
 
-    # Concurrency / robustness
-    max_workers: int = 4
+    # Robustness
     request_timeout: float = 25.0
     llm_timeout: float = 90.0
     max_retries: int = 3

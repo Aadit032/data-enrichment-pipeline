@@ -12,7 +12,6 @@ Flow per company:
 from __future__ import annotations
 
 import json
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from .cache import JsonCache
 from .config import Settings
@@ -236,21 +235,14 @@ def run_batch(
     companies: list[Company],
     limit: int | None = None,
 ) -> list[CompanyResult]:
-    """Enrich companies concurrently, preserving input order."""
+    """Enrich companies sequentially, preserving input order."""
     pipeline = Pipeline(settings, cache)
     companies = companies if limit is None else companies[:limit]
     results: list[CompanyResult] = []
     try:
-        if settings.max_workers <= 1:
-            for index, company in enumerate(companies):
-                results.append(pipeline.enrich_company(company))
-                _log_progress(index + 1, len(companies))
-        else:
-            with ThreadPoolExecutor(max_workers=settings.max_workers) as pool:
-                futures = {pool.submit(pipeline.enrich_company, company): company for company in companies}
-                for index, future in enumerate(as_completed(futures), start=1):
-                    results.append(future.result())
-                    _log_progress(index, len(companies))
+        for index, company in enumerate(companies, start=1):
+            results.append(pipeline.enrich_company(company))
+            _log_progress(index, len(companies))
     finally:
         pipeline.close()
 

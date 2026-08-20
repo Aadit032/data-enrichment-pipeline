@@ -37,8 +37,7 @@ input.csv ──► csvio.read_companies ──► [Company(name, city, address)
                                           ▼
                           ┌─────────────────────────────────────────────┐
                           │  Pipeline.enrich_company (per company,      │
-                          │  companies processed in parallel via        │
-                          │  ThreadPoolExecutor)                        │
+                          │  run sequentially)                          │
                           │                                             │
                           │  1. build_queries ──► 3 variations          │
                           │  2. ExaClient.search × 3 (cached)           │
@@ -241,7 +240,6 @@ cp .env.example .env
 | `OPENROUTER_BASE_URL` | `https://openrouter.ai/api/v1` | OpenRouter-compatible endpoint. |
 | `EXA_NUM_RESULTS` | `5` | Results per query. |
 | `MAX_CANDIDATES` | `5` | Max candidate domains considered per company. |
-| `MAX_WORKERS` | `4` | Companies processed in parallel. |
 | `ENTITY_MATCH_THRESHOLD` | `0.7` | Minimum confidence to accept a match. |
 | `REQUEST_TIMEOUT` | `25` | HTTP timeout (seconds). |
 | `LLM_TIMEOUT` | `90` | LLM request timeout (seconds). |
@@ -293,6 +291,18 @@ uv run pytest        # tests
 uv run ruff check src tests scripts
 ```
 
+## AI tools usage
+
+This project was built with the assistance of AI tools:
+
+- **ChatGPT** — used for research and to come up with the overall architecture plan for how to
+  implement the pipeline (candidate discovery via Exa, evidence retrieval with Playwright fallback,
+  caching strategy, LLM entity resolution, and extraction), which is reflected in `spec.md` and this
+  README.
+- **opencode** — used for writing and iterating on the code (all modules under `src/`) and the
+  documentation (this README, `spec.md`, and module docstrings), including reviewing and fixing
+  errors.
+
 ## Limitations and failure cases
 
 - **Companies with no web presence** (dormant/small registered entities) cannot be enriched and are
@@ -307,5 +317,5 @@ uv run ruff check src tests scripts
   parsing mitigate failures, and the default `openai/gpt-4o-mini` is a good balance of cost/quality.
 - **Query language**: the sample data is Indian-English addresses; locality extraction is tuned for
   that format and is heuristic.
-- **Rate limits**: `MAX_WORKERS` and `MAX_RETRIES` provide basic backpressure; very large datasets
+- **Rate limits**: `MAX_RETRIES` provides basic backpressure; very large datasets
   should run in batches (`--limit`) to stay within API quotas.

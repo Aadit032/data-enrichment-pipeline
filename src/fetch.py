@@ -14,8 +14,8 @@ from __future__ import annotations
 
 import json
 import re
-import threading
 import urllib.parse
+from typing import Any
 
 import httpx
 from bs4 import BeautifulSoup
@@ -38,7 +38,7 @@ _EXTRA_PAGES = ["/about", "/contact", "/about-us", "/about/", "/contact-us", "/c
 
 
 class Fetcher:
-    """Fetches and parses web pages, with per-thread HTTP clients.
+    """Fetches and parses web pages.
 
     Raw HTML is cached under the ``web`` namespace so re-runs avoid re-fetching.
     """
@@ -46,25 +46,23 @@ class Fetcher:
     def __init__(self, settings: Settings, cache: JsonCache | None = None) -> None:
         self.settings = settings
         self.cache = cache
-        self._local = threading.local()
+        self._client: httpx.Client | None = None
 
     @property
     def client(self) -> httpx.Client:
-        client = getattr(self._local, "client", None)
-        if client is None:
-            client = httpx.Client(
+        if self._client is None:
+            self._client = httpx.Client(
                 follow_redirects=True,
                 timeout=self.settings.request_timeout,
                 headers={"User-Agent": _USER_AGENT, "Accept-Language": "en"},
             )
-            self._local.client = client
-        return client
+        return self._client
 
     def close(self) -> None:
-        client = getattr(self._local, "client", None)
-        if client is not None:
-            client.close()
-            self._local.client = None
+        if self._client is not None:
+            self._client.close()
+            self._client = None
+        close_playwright()
 
     def fetch_html(self, url: str) -> tuple[str, str]:
         """Return ``(html, via)`` where via is 'http' or 'playwright', cached by URL."""
@@ -101,10 +99,19 @@ class Fetcher:
             try:
                 rendered_html = render_playwright(url, timeout=self.settings.request_timeout)
                 rendered = extract_evidence(
-                    url, rendered_html, "playwright", city, self.settings.max_page_text_chars
+                    url,
+                    rendered_html,
+                    "playwright",
+                    city,
+                    self.settings.max_page_text_chars,
                 )
                 if len(rendered.text) > len(evidence.text):
-                    logger.debug("playwright upgrade for %s (%d -> %d chars)", url, len(evidence.text), len(rendered.text))
+                    logger.debug(
+                        "playwright upgrade for %s (%d -> %d chars)",
+                        url,
+                        len(evidence.text),
+                        len(rendered.text),
+                    )
                     evidence = rendered
                     self.store_html(url, rendered_html, "playwright")
             except Exception as exc:  # noqa: BLE001
@@ -206,9 +213,13 @@ def _meta(soup: BeautifulSoup, key: str) -> str | None:
     return None
 
 
+def _is_json_ld(value: object) -> bool:
+    return isinstance(value, str) and "application/ld+json" in value.lower()
+
+
 def extract_json_ld(soup: BeautifulSoup) -> list[str]:
     out: list[str] = []
-    for script in soup.find_all("script", type=lambda t: t and "application/ld+json" in t):
+    for script in soup.find_all("script", type=_is_json_ld):
         try:
             data = json.loads(script.string or script.get_text())
         except (json.JSONDecodeError, TypeError):
@@ -243,7 +254,13 @@ def summarize_ld(data: object) -> list[str]:
         if isinstance(address, dict):
             summary["address"] = {
                 k: address[k]
-                for k in ("streetAddress", "addressLocality", "addressRegion", "postalCode", "addressCountry")
+                for k in (
+                    "streetAddress",
+                    "addressLocality",
+                    "addressRegion",
+                    "postalCode",
+                    "addressCountry",
+                )
                 if address.get(k)
             }
         if summary:
@@ -284,28 +301,30 @@ def city_mentions(text: str, city: str) -> list[str]:
 
 
 # ---------------------------------------------------------------------------
-# Playwright rendering (lazy per-thread browser)
+# Playwright rendering (lazy singleton)
 # ---------------------------------------------------------------------------
 
-_pw_local = threading.local()
+_playwright: Any = None
+_browser: Any = None
 
 
 def render_playwright(url: str, timeout: float) -> str:
     """Render a page in headless Chromium and return its post-JS HTML."""
+    global _playwright, _browser
     try:
         from playwright.sync_api import sync_playwright
     except ImportError as exc:
-        raise RuntimeError("playwright is not installed; run 'uv sync' and 'uv run playwright install chromium'") from exc
+        raise RuntimeError(
+            "playwright is not installed; run 'uv sync' and 'uv run playwright install chromium'"
+        ) from exc
 
-    p = getattr(_pw_local, "playwright", None)
-    if p is None:
-        p = sync_playwright().start()
-        _pw_local.playwright = p
-        _pw_local.browser = p.chromium.launch(headless=True)
+    if _playwright is None:
+        _playwright = sync_playwright().start()
+        _browser = _playwright.chromium.launch(headless=True)
 
-    page = _pw_local.browser.new_page()
+    page = _browser.new_page()
     try:
-        page.goto(url, wait_until="domcontentloaded", timeout=timeout * 1000)
+        page.goto(url, wait_until="domcontentloaded", timeout=int(timeout * 1000))
         page.wait_for_timeout(2500)
         return page.content()
     finally:
@@ -313,10 +332,10 @@ def render_playwright(url: str, timeout: float) -> str:
 
 
 def close_playwright() -> None:
-    p = getattr(_pw_local, "playwright", None)
-    if p is not None:
+    global _playwright, _browser
+    if _playwright is not None:
         try:
-            p.stop()
+            _playwright.stop()
         finally:
-            _pw_local.playwright = None
-            _pw_local.browser = None
+            _playwright = None
+            _browser = None

@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website mentions 'SAI NET' but does not provide any corroborating evidence such as the full legal name, address, or pincode that matches the target company. The lack of specific location details raises doubts about the exact match.",
+  "evidence": [
+    "SAI NET",
+    "broadband plans"
+  ],
+  "site_type": "third_party"
+}

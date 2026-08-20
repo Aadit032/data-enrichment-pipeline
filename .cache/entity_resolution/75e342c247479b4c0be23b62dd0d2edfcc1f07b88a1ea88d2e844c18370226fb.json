@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about HUNGAMA DIGITAL SERVICES PRIVATE LIMITED, including its legal name and address. However, it is a third-party site (SensiBook) that aggregates company data rather than being the official website of the company itself.",
+  "evidence": [
+    "HUNGAMA DIGITAL SERVICES PRIVATE LIMITED",
+    "6th Floor, Wing A, The Orb Sahar, Village Marol, Andheri (East) - 400099",
+    "Mumbai, Maharashtra, 400099"
+  ],
+  "site_type": "third_party"
+}

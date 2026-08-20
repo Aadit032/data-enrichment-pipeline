@@ -1,0 +1,9 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website is a third-party platform that provides information about various companies, including DSPS TECH PLATFORM PRIVATE LIMITED. However, it does not serve as the official website of the target company, and the evidence provided does not confirm a direct link to the company's operations or branding.",
+  "evidence": [
+    "Dsps Tech Platform Private Limited Mumbai, Maharashtra, India"
+  ],
+  "site_type": "third_party"
+}

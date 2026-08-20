@@ -1,0 +1,9 @@
+{
+  "is_match": false,
+  "confidence": 0.1,
+  "explanation": "The candidate website does not provide any evidence that it belongs to TRY ACE PRIVATE LIMITED. It appears to be a business directory site listing various companies, including some in Mumbai, but lacks specific information linking it to the target company.",
+  "evidence": [
+    "none"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The candidate page is a listing on Square Yards for a project named \"Blue Gardenia\" located on Peddar Road, Mumbai South. The target company is \"Blue Garden Estates Private Limited\" with a distinct legal name and a different address (Office No. 09, First Floor, Harmony Mall near Goregaon Bus Depot, Goregaon Link Road, Mumbai, 400104). The name, address, and domain do not match the target entity, and the page is a third‑party real estate portal, not the developer’s official site.",
+  "evidence": [
+    "Blue Gardenia",
+    "Peddar Road, Mumbai South"
+  ],
+  "site_type": "third_party"
+}

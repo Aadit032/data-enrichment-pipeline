@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides the exact legal name of the target company, Vidhya Accounts Consultants Private Limited, along with a matching address in Dist-Thane, Maharashtra, which corroborates the target company's details. This strong alignment indicates that the website is indeed related to the same legal entity.",
+  "evidence": [
+    "Vidhya Accounts Consultants Private Limited",
+    "B-22 ROHINI SEC-VSRISHTI RESIDENTIAL COMPLEX MIRA ROAD E,DIST-THANE,Maharashtra,401107-India"
+  ],
+  "site_type": "third_party"
+}

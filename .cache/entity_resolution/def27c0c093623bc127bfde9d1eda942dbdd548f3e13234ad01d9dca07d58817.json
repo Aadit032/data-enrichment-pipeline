@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides explicit details about BIG BUSINESS ADVISORS PRIVATE LIMITED, including the exact legal name, registered address, and Corporate Identification Number (CIN). The address matches the target company's address in Mumbai, confirming the identity of the company.",
+  "evidence": [
+    "BIG BUSINESS ADVISORS PRIVATE LIMITED",
+    "B 305, SAGAR NAGAR, AMBA MATA ROAD AT AND POST PALGHAR, PALGHAR, Maharashtra, 401404",
+    "CIN U74120MH2011PTC220932"
+  ],
+  "site_type": "third_party"
+}

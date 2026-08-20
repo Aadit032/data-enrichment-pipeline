@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.4,
+  "explanation": "The candidate site displays the name \"ArtEstates\" and uses the domain artestates.co, but there is no evidence of the exact legal name, address, city, or pincode matching the target company. Without location confirmation, we cannot assert that this is the official site of ART ESTATES PRIVATE LIMITED.",
+  "evidence": [
+    "ArtEstates",
+    "artestates.co"
+  ],
+  "site_type": "third_party"
+}

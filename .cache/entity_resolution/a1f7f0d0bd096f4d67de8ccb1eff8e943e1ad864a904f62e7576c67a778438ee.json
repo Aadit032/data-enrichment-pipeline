@@ -1,0 +1,12 @@
+{
+  "is_match": false,
+  "confidence": 0.4,
+  "explanation": "The candidate website provides information about NILESH GAIKWAD GROUP PRIVATE LIMITED, including its GSTIN and address in Maharashtra. However, it is a third-party site that aggregates GST information and does not serve as the official website of the company. There is no direct evidence that this site is operated by the company itself.",
+  "evidence": [
+    "NILESH GAIKWAD GROUP PRIVATE LIMITED",
+    "GSTIN: 27AAECN3691H1Z8",
+    "Maharashtra",
+    "PIN Code 411030"
+  ],
+  "site_type": "third_party"
+}

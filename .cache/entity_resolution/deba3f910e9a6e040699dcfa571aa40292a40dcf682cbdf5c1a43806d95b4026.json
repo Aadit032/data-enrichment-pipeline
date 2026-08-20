@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about 'M/S Om Shri Sai Cranes India Private Limited' but is hosted on 'thecompanycheck.com', which is a third-party site that aggregates company data. There is no evidence that this site is operated by the company itself, and it does not provide a direct link to the company's official website.",
+  "evidence": [
+    "M/S Om Shri Sai Cranes India Private Limited",
+    "Navi Mumbai, Maharashtra",
+    "410218"
+  ],
+  "site_type": "third_party"
+}

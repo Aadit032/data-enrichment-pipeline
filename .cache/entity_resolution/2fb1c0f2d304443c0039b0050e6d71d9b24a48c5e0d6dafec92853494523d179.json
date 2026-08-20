@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Amit Choco Industries Private Limited, including its legal name and address. However, it is a third-party site that aggregates company information and does not serve as the official website of the company. Additionally, the address listed is in Nagpur, while the target company is associated with Mumbai, which raises further doubts about the exact match.",
+  "evidence": [
+    "Amit Choco Industries Private Limited",
+    "125, SHREE GANESH SNEHAL APTS FLAY NO. 203, SHRADDANAD PETH SOUTH AMBAZARI ROAD NAGPUR MH 440022 IN",
+    "CIN: U74120MH2012PTC229132"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.4,
+  "explanation": "The candidate website provides information about FINCOMM SOLUTIONS PRIVATE LIMITED, including its GST number and address, but it is a third-party site that aggregates GST information rather than being the official website of the company. There is no direct evidence that this site is operated by the company itself.",
+  "evidence": [
+    "GST Number for FINCOMM SOLUTIONS PRIVATE LIMITED is 27AABCF6593R1ZR",
+    "Gundavli Village, Opp PVR Cinema, BEHIND GURUNANAK PETROL PUMP, PRAKASHWADI, ANDHERI EAST, Mumbai, Maharashtra, 400093"
+  ],
+  "site_type": "third_party"
+}

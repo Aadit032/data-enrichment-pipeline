@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Niveza India Private Limited but is operated by a third-party platform (The Company Check) that aggregates company data. There is no direct evidence that this is the official website of the company.",
+  "evidence": [
+    "Niveza India Private Limited is a 14-year-old active private limited company in Haveli, Maharashtra.",
+    "Registered Address Teerth Technospace Office Teerth2Work No. B 104, First Floor Sr. No. 103, Haveli, Maharashtra, India – 411045"
+  ],
+  "site_type": "third_party"
+}

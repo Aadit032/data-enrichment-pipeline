@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides the exact legal name 'DSPS TECH PLATFORM PRIVATE LIMITED' along with a complete address that matches the target company's address in Mumbai, including the pincode. This strong corroboration of both name and location indicates a high confidence in the match.",
+  "evidence": [
+    "DSPS TECH PLATFORM PRIVATE LIMITED",
+    "1201-1202, 12th Floor, Wing A, One BKC, G Block Plot No. 66, Bandra Kurla Complex, Bandr,a (East),Mumbai,Mumbai City,Maharashtra,400051-India",
+    "CIN: U74110MH2021PTC373772"
+  ],
+  "site_type": "third_party"
+}

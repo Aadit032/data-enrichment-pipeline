@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.5,
+  "explanation": "The candidate website mentions the exact company name 'Viva Facility Services Pvt. Ltd.' and provides a matching address in Lower Parel, Mumbai. However, it is hosted on Sulekha, which is a third-party directory site and does not confirm that it is the official site of the company.",
+  "evidence": [
+    "Viva Facility Services Pvt. Ltd.",
+    "Shop No.80, Kawali Compound, N M Joshi Marg, Opposite Western Railway Hospital, Lower Parel, Mumbai - 400013"
+  ],
+  "site_type": "third_party"
+}

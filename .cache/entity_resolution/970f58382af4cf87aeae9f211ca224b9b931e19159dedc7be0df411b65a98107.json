@@ -1,0 +1,9 @@
+{
+  "is_match": false,
+  "confidence": 0.1,
+  "explanation": "The candidate website refers to 'J A G M A Consultancy Services Ltd.' which is a different name from the target company 'JAGMA SYSTEM AND SOLUTIONS PRIVATE LIMITED'. There is no corroborating evidence of location or address that links this site to the target company. The content suggests it is a consultancy service, which may not be related to the target entity.",
+  "evidence": [
+    "J A G M A Consultancy Services Ltd."
+  ],
+  "site_type": "third_party"
+}

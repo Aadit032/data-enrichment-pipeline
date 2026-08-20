@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about NTH VENTURE PRIVATE LIMITED, including its registration details and address. However, it is a third-party site (zauba.company) that aggregates company information rather than being the official website of the company itself.",
+  "evidence": [
+    "NTH VENTURE PRIVATE LIMITED",
+    "801/802, Tulsani Chambers, 8 th Floor, Free Press Journal Marg, Nariman Point,, Mumbai,Mumbai,Mumbai City,Maharashtra,400021-India",
+    "CIN: U70102MH2015PTC270072"
+  ],
+  "site_type": "third_party"
+}

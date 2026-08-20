@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides an exact match of the legal name 'CAPRICH CONSULTANCY PRIVATE LIMITED' along with the complete address that matches the target company, including the city and pincode. This strong corroboration indicates that the website belongs to the exact same company.",
+  "evidence": [
+    "CAPRICH CONSULTANCY PRIVATE LIMITED",
+    "Shop No.8, 6829,First Floor, Ashok Plaza Opp. Majestic Theater, M G Road, Jalna, JALNA, Maharashtra, 431203"
+  ],
+  "site_type": "third_party"
+}

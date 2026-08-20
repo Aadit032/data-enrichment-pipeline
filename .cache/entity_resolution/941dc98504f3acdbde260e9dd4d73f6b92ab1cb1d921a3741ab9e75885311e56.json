@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website refers to 'Tri Ace Solutions & Services Private Limited', which is a different legal entity from 'TRY ACE PRIVATE LIMITED'. Although both are based in Mumbai, the name discrepancy indicates they are likely distinct companies. There is no direct evidence linking the candidate site to the target company.",
+  "evidence": [
+    "Tri Ace Solutions & Services Private Limited",
+    "Mumbai"
+  ],
+  "site_type": "third_party"
+}

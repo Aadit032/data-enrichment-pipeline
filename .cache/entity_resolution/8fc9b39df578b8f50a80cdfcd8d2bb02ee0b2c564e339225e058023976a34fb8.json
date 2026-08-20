@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about 'BIG Business Advisors Pvt. Ltd.' but does not confirm that it is the official site of the company. The address mentioned is different from the target company's address, indicating it may be a third-party profile rather than the company's own website.",
+  "evidence": [
+    "BIG Business Advisors Pvt. Ltd.",
+    "Mumbai, Maharashtra, India",
+    "Proprietor Mr. Kshitij Katyayan Address 4. Hindustan Kohinoor Complex, L.B.S. Road, Vikhroli West, Mumbai, Maharashtra, 400083, India"
+  ],
+  "site_type": "third_party"
+}

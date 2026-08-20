@@ -1,0 +1,12 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides explicit information about 'Nilesh Gaikwad Group Private Limited' including the exact legal name, registered address, and city, which matches the target company. The presence of the same address and pincode further corroborates the match.",
+  "evidence": [
+    "Nilesh Gaikwad Group Private Limited registered address is 9 SADASHIV PETH 10/11 KELGA SALES SHASTRI PUNE Pune MH 411030 IN",
+    "CIN U74110PN2013PTC147693",
+    "Pincode 411030",
+    "City Pune"
+  ],
+  "site_type": "third_party"
+}

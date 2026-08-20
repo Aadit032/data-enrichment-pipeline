@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about a director associated with MANAK BANGLES PRIVATE LIMITED but does not serve as the official website of the company. It is an independent platform that lists company information without being operated by the company itself.",
+  "evidence": [
+    "MANAK BANGLES PRIVATE LIMITED",
+    "AJIT LAXMICHAND JAIN is currently the director of MANAK BANGLES PRIVATE LIMITED"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides detailed information about Galaxy Infonet Private Limited, including its legal name and address, but it is hosted on Tofler, which is a third-party site that aggregates company information rather than being the official website of the company itself.",
+  "evidence": [
+    "GALAXY INFONET PRIVATE LIMITED",
+    "Room No.3, Ahire Chawl, Ambedkar Nagar, P.L.Lokhande Marg, Chembur, Mumbai, Mumbai City, Maharashtra - 400089"
+  ],
+  "site_type": "third_party"
+}

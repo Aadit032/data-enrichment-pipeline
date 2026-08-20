@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about KIRAN DRUG HOUSE PRIVATE LIMITED, including its legal name and address, but it is hosted on Tracxn, which is a third-party site that aggregates company data. There is no evidence that this site is operated by the company itself.",
+  "evidence": [
+    "KIRAN DRUG HOUSE PRIVATE LIMITED",
+    "SHOP NO. 9, KRISHNARAJ HOUSING SOCIETY GOLEY COLONY, NASHIK, Maharashtra, India, 422002"
+  ],
+  "site_type": "third_party"
+}

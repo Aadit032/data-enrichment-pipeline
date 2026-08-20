@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website refers to 'Amit Industries' in Mumbai, which is a different name from the target company 'AMIT CHOCO INDUSTRIES PRIVATE LIMITED'. There is no direct evidence linking the two entities, and the address provided does not match the target company's address in Nagpur. Therefore, it is likely a namesake or unrelated company.",
+  "evidence": [
+    "Amit Industries, Mumbai",
+    "Manufacturer of Packaging Pouch and Computer Accessories"
+  ],
+  "site_type": "third_party"
+}

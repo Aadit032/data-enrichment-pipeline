@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Try Ace Private Limited but is operated by a third-party platform (The Company Check) that aggregates company data. There is no direct evidence that this is the official website of Try Ace Private Limited.",
+  "evidence": [
+    "Try Ace Private Limited",
+    "Thane, Maharashtra",
+    "B/305 Yamuna Tower Jangid Complex Opp Jammu Kashmir Bank Mtnl Road Mira, Road East, Thane, Maharashtra, India – 401107"
+  ],
+  "site_type": "third_party"
+}

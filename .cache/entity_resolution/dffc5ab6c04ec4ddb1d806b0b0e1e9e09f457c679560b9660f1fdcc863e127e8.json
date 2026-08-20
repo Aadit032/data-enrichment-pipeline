@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.5,
+  "explanation": "The candidate website provides detailed information about PROPHANDY TECHNOLOGIES PRIVATE LIMITED, including its legal name and registered address. However, it is hosted on Tracxn, which is a third-party platform and does not indicate that it is the official website of the company.",
+  "evidence": [
+    "PROPHANDY TECHNOLOGIES PRIVATE LIMITED",
+    "Fiesta flat no B 802 Sr no. 35/2/1/2 Nr Roharsh Motors Baner, Pune, PUNE, Maharashtra, India, 411045"
+  ],
+  "site_type": "third_party"
+}

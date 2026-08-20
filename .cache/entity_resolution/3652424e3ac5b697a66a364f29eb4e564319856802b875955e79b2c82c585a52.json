@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.5,
+  "explanation": "The candidate website provides information about Shimshon Advisory Private Limited, including its GST number and address. However, it is a third-party site that aggregates GST information and does not serve as the official website of the company. The address provided has a slight discrepancy in the pincode (400091 vs 400092), which raises doubts about the exact match.",
+  "evidence": [
+    "Shimshon Advisory Private Limited",
+    "Gayatri Building 601 Jayraj Nagar, Vazira Naka, Borivali West Mumbai Maharashtra Pincode 400091"
+  ],
+  "site_type": "third_party"
+}

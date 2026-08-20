@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website explicitly mentions the legal name 'Oxiona Energy Solutions India Pvt. Ltd.' and provides corroborating location evidence, including the city 'Mumbai' and the state 'Maharashtra'. The details align closely with the target company's information.",
+  "evidence": [
+    "Oxiona Energy Solutions India Pvt. Ltd.",
+    "Mumbai, Maharashtra",
+    "CIN No. U74120MH****PTC****29"
+  ],
+  "site_type": "third_party"
+}

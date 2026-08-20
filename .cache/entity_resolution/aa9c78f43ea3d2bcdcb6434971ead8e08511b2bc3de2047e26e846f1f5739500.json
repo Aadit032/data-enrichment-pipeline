@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about TOPSPIRE ANALYTICAL SERVICES PRIVATE LIMITED, including its address and registration details. However, it is a third-party site (SensiBook) that aggregates company information rather than being the official website of the company itself.",
+  "evidence": [
+    "TOPSPIRE ANALYTICAL SERVICES PRIVATE LIMITED",
+    "101, Bldg. No.3, Siddhi Co Op Hsg Soc. Ltd. Kavesar, Opp Vijay Garden, G.B. Road Tha, Ne (W) - 400615",
+    "THANE, Maharashtra, 400615"
+  ],
+  "site_type": "third_party"
+}

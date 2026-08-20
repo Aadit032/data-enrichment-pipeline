@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.1,
+  "explanation": "The candidate website refers to 'Sivive Enterprise Solutions Private Limited', which is a different legal entity from the target company 'TECHVIVE SOLUTIONS PRIVATE LIMITED'. There is no evidence linking the two companies, and they are located in different areas of Mumbai. The site is a third-party platform providing company information, not the official site of the target company.",
+  "evidence": [
+    "Sivive Enterprise Solutions Private Limited",
+    "Mumbai, Maharashtra, India"
+  ],
+  "site_type": "third_party"
+}

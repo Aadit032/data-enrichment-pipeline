@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.8,
+  "explanation": "The candidate website explicitly uses the name 'FoxyMoron', which matches the target company's name. Additionally, it mentions Mumbai as one of the locations, which corroborates the target company's city. However, the exact address is not provided, leading to a high confidence but not absolute certainty.",
+  "evidence": [
+    "FoxyMoron",
+    "Mumbai"
+  ],
+  "site_type": "official"
+}

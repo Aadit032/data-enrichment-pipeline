@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website references 'MANAK JEWELLERS PVT. LTD' which is a different legal entity from the target company 'MANAK BANGLES PRIVATE LIMITED'. Although both are located in Mumbai and share part of their names, they are distinct companies. The evidence does not confirm that the candidate website belongs to the target company.",
+  "evidence": [
+    "MANAK JEWELLERS PVT. LTD",
+    "Mumbai",
+    "GOREGOAN WEST, Mumbai, Maharashtra, 400062"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The candidate website mentions 'Caprich' but does not provide any evidence linking it to 'Caprich Consultancy Private Limited' in Mumbai. There is no address, pincode, or any other corroborating information to confirm it is the same entity.",
+  "evidence": [
+    "#Caprich",
+    "officeblessings",
+    "Satyanarayan Puja"
+  ],
+  "site_type": "third_party"
+}

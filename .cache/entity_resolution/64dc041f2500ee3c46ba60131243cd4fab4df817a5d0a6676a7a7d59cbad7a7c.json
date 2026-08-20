@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.0,
+  "explanation": "The candidate website is for 'Technovive Solutions', which is a different name from the target company 'TECHVIVE SOLUTIONS PRIVATE LIMITED'. Additionally, the address provided on the candidate website is in Chennai, while the target company's address is in Mumbai. There is no evidence linking the two companies as the same entity.",
+  "evidence": [
+    "Technovive Solutions",
+    "Registered address: 42, 3rd Cross Street, Sivagami Nagar, Medavakkam, Chennai - 600100"
+  ],
+  "site_type": "third_party"
+}

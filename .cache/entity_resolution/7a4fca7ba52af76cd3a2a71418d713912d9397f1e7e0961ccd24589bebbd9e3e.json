@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about RB DIVERSIFIED PRIVATE LIMITED, including its registration details and address, but it is a third-party site (zauba.company) that aggregates company information rather than being the official website of the company itself.",
+  "evidence": [
+    "RB DIVERSIFIED PRIVATE LIMITED",
+    "301/401, Aquamarine , Plot number 273 -B Carter Road Bandra West,Mumbai,Bandra Suburban,Maharashtra,400050-India",
+    "CIN: U74120MH2006PTC273542"
+  ],
+  "site_type": "third_party"
+}

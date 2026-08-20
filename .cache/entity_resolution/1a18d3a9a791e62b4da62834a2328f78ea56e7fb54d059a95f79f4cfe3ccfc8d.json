@@ -1,0 +1,9 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The candidate website does not provide any evidence that it is operated by AMIT CHOCO INDUSTRIES PRIVATE LIMITED. It mentions a different pincode (400021) and does not confirm the exact address or legal name of the target company. The references to 'C.c.i. Mumbai' are ambiguous and do not clearly link to the target company.",
+  "evidence": [
+    "C.c.i. Mumbai, 400021, India"
+  ],
+  "site_type": "third_party"
+}

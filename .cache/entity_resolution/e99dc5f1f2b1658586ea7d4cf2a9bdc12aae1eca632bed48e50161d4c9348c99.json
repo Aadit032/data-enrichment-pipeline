@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The candidate website discusses a company named Inspacco, which is based in Pune, but there is no direct evidence that it is the same legal entity as PROPHANDY TECHNOLOGIES PRIVATE LIMITED. The name 'Inspacco' does not match the target company's legal name, and while there are mentions of Pune, the evidence does not confirm an exact match of the legal entity.",
+  "evidence": [
+    "Inspacco is headquartered in Pune, India",
+    "Inspacco operates in Enterprise Tech"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Saldanha Real Estate Private Limited, including the exact company name and address. However, it is a third-party site (Tofler) that aggregates company information rather than being the official website of the company itself. Therefore, it does not meet the criteria for an exact match.",
+  "evidence": [
+    "SALDANHA REAL ESTATE PRIVATE LIMITED",
+    "SALCETTE CATHOLIC CHS, FLAT NO.1, PLOT NO.29, 56, HILL ROAD, OPP. BATA SHOE SHOP, BANDRA (WEST), MUMBAI, Mumbai City, Maharashtra - 400050"
+  ],
+  "site_type": "third_party"
+}

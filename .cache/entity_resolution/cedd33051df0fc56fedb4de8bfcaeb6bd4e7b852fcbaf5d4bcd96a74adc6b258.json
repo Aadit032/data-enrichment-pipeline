@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website explicitly states the legal name 'Om Shri Sai Cranes India Pvt. Ltd.' and provides a matching address in Navi Mumbai, including the same pincode. This strong correlation between the name and location confirms that the website belongs to the exact same company.",
+  "evidence": [
+    "Om Shri Sai Cranes India Pvt. Ltd.",
+    "Office No.2001, A Wing, Bima Complex, Kalamboli, Navi Mumbai - 410218",
+    "Navi Mumbai, Maharashtra, India"
+  ],
+  "site_type": "official"
+}

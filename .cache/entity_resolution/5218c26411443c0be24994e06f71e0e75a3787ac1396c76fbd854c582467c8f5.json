@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The LinkedIn page lists a company named Rahul Photographic Company Pvt Ltd headquartered in Mumbai, but the address shown (Corporate Avenue Sonawala Road, Goregaon East, Boisar, District Thane, Mumbai) does not match the target address (206, 2nd Floor, Inspire Hub, Adani Western Height Four BGLWS, Andheri West, Mumbai). The industry listed is also unrelated (Chemical Manufacturing). Therefore the evidence does not confirm that this LinkedIn page refers to the exact legal entity of the target company.",
+  "evidence": [
+    "Rahul Photographic Company Pvt Ltd",
+    "Mumbai",
+    "Corporate Avenue Sonawala Road, Goregaon East Tarapur MIDC Industrial Area Boisar, District Thane Mumbai, Maharashtra, IN"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website explicitly mentions 'Viva Facility Services' and provides a matching address in Mumbai, which includes the same shop number and pincode as the target company. This strong correlation in name and location confirms that the website belongs to the exact same legal entity.",
+  "evidence": [
+    "Viva Facility Services",
+    "80, Kawali Compound, Opp. Western Railway Hospital, N. M. Joshi Marg, Mumbai- 400 013"
+  ],
+  "site_type": "official"
+}

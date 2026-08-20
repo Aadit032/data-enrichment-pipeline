@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The candidate website provides information about 'Libra Decor Private Limited' but lists a different registered address in Bandra (east), Mumbai, which does not match the target company's address in New Marine Lines, Mumbai. This indicates that the website is likely referencing a different entity or a namesake company.",
+  "evidence": [
+    "Libra Decor Private Limited",
+    "Registered address: 805 Hallmark Business Plaza Guru Nanak Hospital Road, Bandra (east) Mumbai Mh In 400051",
+    "CIN U74120MH2011PTC215741"
+  ],
+  "site_type": "third_party"
+}

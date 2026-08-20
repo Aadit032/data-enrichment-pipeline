@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides detailed information about Vidhya Accounts Consultants Private Limited, including the exact legal name and address. However, it is a third-party site that aggregates company information rather than being the official website of the company itself. Additionally, the address mentions Kolhapur, which raises doubts about the exact match with the target company's location in Mumbai.",
+  "evidence": [
+    "Vidhya Accounts Consultants Private Limited",
+    "B-22 ROHINI SEC-VSRISHTI RESIDENTIAL COMPLEX MIRA ROAD E DIST-THANE MH 401107 IN",
+    "CIN: U74120MH2005PTC150599"
+  ],
+  "site_type": "third_party"
+}

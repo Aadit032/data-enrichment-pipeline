@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.1,
+  "explanation": "The candidate page is hosted on the third‑party site The Company Check, which aggregates company data but does not represent the official website of Blue Garden Estates Private Limited. The page lists the company name and mentions Mumbai, but there is no evidence that the domain is owned or operated by the company itself.",
+  "evidence": [
+    "Blue Garden Estates Private Limited",
+    "Mumbai, Maharashtra (India)"
+  ],
+  "site_type": "third_party"
+}

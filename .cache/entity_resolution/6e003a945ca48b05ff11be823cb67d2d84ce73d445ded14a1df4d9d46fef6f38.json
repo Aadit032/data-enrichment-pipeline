@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Ideal Mockups Private Limited but does not serve as the official site of the company. The address mentioned on the site is different from the target company's address, which raises doubts about the exact match.",
+  "evidence": [
+    "Ideal Mockups Private Limited",
+    "C/o Shri Sohan S. Dahake, GS-1, GS-2, GS-3 Advait Complex, Swavlambi Nagar, Nagpur Nagpur MH 440022 IN",
+    "CIN: U74120MH2011PTC219323"
+  ],
+  "site_type": "third_party"
+}

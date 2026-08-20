@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website explicitly mentions 'Viva Facility Services Pvt Ltd' and provides a detailed address that matches the target company's address in Mumbai. The evidence strongly supports that this is the same legal entity.",
+  "evidence": [
+    "Viva Facility Services Pvt Ltd",
+    "Office No. 80, Kawali Compound, N.M.Joshi Marg, Opp. Western Railway Workshop, Lower Parel, Mumbai",
+    "Mumbai, Maharashtra, India"
+  ],
+  "site_type": "official"
+}

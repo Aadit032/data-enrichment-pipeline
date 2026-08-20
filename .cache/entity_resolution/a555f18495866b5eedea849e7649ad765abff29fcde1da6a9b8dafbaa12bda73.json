@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.5,
+  "explanation": "The candidate website provides detailed information about OM SHRI SAI CRANES (INDIA) PRIVATE LIMITED, including its legal name and registered address, but it is hosted on Tracxn, which is a third-party site and not the official website of the company.",
+  "evidence": [
+    "OM SHRI SAI CRANES (INDIA) PRIVATE LIMITED",
+    "A-2001, BIMA COMPLEX, KALAMBOLI STREET MARKET, KALAMBOLI, NAVI MUMBAI, Maharashtra, 410218"
+  ],
+  "site_type": "third_party"
+}

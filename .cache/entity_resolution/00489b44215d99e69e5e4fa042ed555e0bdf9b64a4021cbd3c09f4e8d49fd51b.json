@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.0,
+  "explanation": "The candidate website refers to 'Scott Enterprises', which is a different name from the target company 'SCOTBAY ENTERPRISES PRIVATE LIMITED'. There is no evidence of a match in terms of name, location, or address. The website does not provide any information linking it to the target company, and it appears to be a separate entity offering business solutions.",
+  "evidence": [
+    "Scott Enterprises",
+    "Business Enterprise Solutions"
+  ],
+  "site_type": "third_party"
+}

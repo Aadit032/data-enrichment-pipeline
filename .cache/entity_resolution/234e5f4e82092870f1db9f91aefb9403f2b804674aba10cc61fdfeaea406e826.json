@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides detailed information about SALDANHA REAL ESTATE PRIVATE LIMITED, including its legal name and address. However, it is hosted on Tracxn, which is a third-party site that aggregates company information rather than being the official website of the company itself.",
+  "evidence": [
+    "SALDANHA REAL ESTATE PRIVATE LIMITED",
+    "SALCETTE CATHOLIC CHS, FLAT NO.1, PLOT NO.29, 56, HILL ROAD, OPP. BATA SHOE SHOP, BAND, RA (WEST), Mumbai City, MUMBAI, Maharashtra, India, 400050"
+  ],
+  "site_type": "third_party"
+}

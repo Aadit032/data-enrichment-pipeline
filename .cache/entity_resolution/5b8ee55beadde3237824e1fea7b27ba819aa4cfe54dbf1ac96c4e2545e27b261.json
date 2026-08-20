@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The candidate website mentions 'Techvizo' as a web development company in Mumbai, but it does not match the target company's legal name 'TECHVIVE SOLUTIONS PRIVATE LIMITED'. There is no evidence of the exact legal entity or address that corresponds to the target company.",
+  "evidence": [
+    "Techvizo",
+    "Web Development Company Mumbai",
+    "Navi Mumbai, Maharashtra"
+  ],
+  "site_type": "third_party"
+}

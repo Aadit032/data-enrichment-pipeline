@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Naina Hemant Narichania as a director of the target company, but it does not confirm that the website is operated by NARICHANIA CONSULTANCY AND AGENCY PVT LTD. There is no direct evidence of the company's name, address, or any official branding on the site.",
+  "evidence": [
+    "NAINA HEMANT NARICHANIA Director Detail",
+    "NARICHANIA CONSULTANCY AND AGENCY PVT LTD Director"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website explicitly states the legal name 'SCOTBAY ENTERPRISES PRIVATE LIMITED' and provides a matching address in Mumbai, which corresponds exactly to the target company's details.",
+  "evidence": [
+    "SCOTBAY ENTERPRISES PRIVATE LIMITED",
+    "404/405 A Wing, Building No.23, Samarth Angan III Off K L Walawalkar Rd Andheri, Mumbai, Mumbai City, Maharashtra, 400053"
+  ],
+  "site_type": "third_party"
+}

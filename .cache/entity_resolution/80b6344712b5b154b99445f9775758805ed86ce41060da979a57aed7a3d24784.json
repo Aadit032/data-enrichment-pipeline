@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.1,
+  "explanation": "The candidate website refers to 'WALNUT CONSULTANCY SERVICES LTD', which is a different legal entity than 'WALNUT CONSULTANCY SERVICES PRIVATE LIMITED'. The address provided on the candidate site is in Bury St Edmunds, Suffolk, which does not match the target company's location in Mumbai. Therefore, this is not the same company.",
+  "evidence": [
+    "WALNUT CONSULTANCY SERVICES LTD",
+    "Registered office address 3 Hazelwood Close, Thurston, Bury St Edmunds, Suffolk, IP31 3NX"
+  ],
+  "site_type": "third_party"
+}

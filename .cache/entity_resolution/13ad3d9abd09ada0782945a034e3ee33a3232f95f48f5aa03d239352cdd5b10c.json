@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about 'OAK SUPPORT SERVICES PRIVATE LIMITED' but is hosted on Tofler, which is a third-party site that aggregates company data. While it mentions the exact company name and address, it does not serve as the official website of the company.",
+  "evidence": [
+    "OAK SUPPORT SERVICES PRIVATE LIMITED",
+    "318, VAISHALI APARTMENTS, 12/14 PAREKH STREET, BEHIND GIRGAON COURT, PRARTHANA SAMAJ, MUMBAI, Mumbai City, Maharashtra - 400004"
+  ],
+  "site_type": "third_party"
+}

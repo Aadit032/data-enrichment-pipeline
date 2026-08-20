@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The candidate website refers to 'Smit Marketing', which is a different name from the target company 'SMITIN MARKETING PRIVATE LIMITED'. Additionally, the address provided on the candidate website is '126, Veer Vithaldas Chandan Street, Mumbai, Maharashtra 400003', which does not match the target company's address in Andheri East, Mumbai. Therefore, it is likely a namesake or unrelated entity.",
+  "evidence": [
+    "Smit Marketing",
+    "126, Veer Vithaldas Chandan Street, Mumbai, Maharashtra 400003"
+  ],
+  "site_type": "third_party"
+}

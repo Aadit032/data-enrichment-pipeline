@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.4,
+  "explanation": "The candidate website provides information about 'Warp & Weft Enterprises Private Limited' and mentions Mumbai, but it does not serve as the official site of the company. It appears to be a third-party directory or information site rather than the company's own website.",
+  "evidence": [
+    "Warp & Weft Enterprises Private Limited",
+    "Mumbai"
+  ],
+  "site_type": "third_party"
+}

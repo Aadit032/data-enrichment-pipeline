@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.5,
+  "explanation": "The candidate website provides detailed information about 'Om Shri Sai Cranes (India) Private Limited', including the exact legal name and address. However, it is a third-party site that aggregates company information rather than being the official website of the company itself.",
+  "evidence": [
+    "Om Shri Sai Cranes (India) Private Limited",
+    "A-2001, BIMA COMPLEX, KALAMBOLI STREET MARKET, KALAMBOLI NAVI MUMBAI MH 410218 IN",
+    "Mumbai, Maharashtra, 410218"
+  ],
+  "site_type": "third_party"
+}

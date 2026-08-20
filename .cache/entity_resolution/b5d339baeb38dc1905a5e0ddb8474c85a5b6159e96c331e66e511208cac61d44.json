@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about a director associated with AMFLOW EXIM PRIVATE LIMITED but does not confirm that it is the official website of the company. There is no direct evidence of the company's name, address, or any official branding on the site.",
+  "evidence": [
+    "AMFLOW EXIM PRIVATE LIMITED",
+    "Director Profile of AMITA VIRENDRA SONAWALA"
+  ],
+  "site_type": "third_party"
+}

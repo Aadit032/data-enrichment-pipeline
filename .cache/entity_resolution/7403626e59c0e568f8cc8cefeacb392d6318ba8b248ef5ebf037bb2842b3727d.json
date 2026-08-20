@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides detailed information about Kiran Drug House Private Limited, including its address and registration details. However, it is a third-party site that aggregates company information rather than being the official website of the company itself. The presence of the same name does not guarantee it is the same entity, especially since the site does not confirm ownership or direct operation by the company.",
+  "evidence": [
+    "Kiran Drug House Private Limited",
+    "SHOP NO. 9, KRISHNARAJ HOUSING SOCIETY GOLEY COLONY NASHIK MH 422002 IN",
+    "CIN: U74120MH2011PTC222926"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,14 @@
+{
+  "is_match": true,
+  "confidence": 0.92,
+  "explanation": "The candidate page lists the exact legal name \"ART ESTATES PRIVATE LIMITED\" along with the full registered address (Office No10 Agarkar Bhavanlbs Road, 411030, Pune, Maharashtra) and the CIN U70102PN2000PTC014558, matching the target company’s details. The site is a third‑party business intelligence portal (Sensibook), not the company’s own domain, so it is classified as third_party.",
+  "evidence": [
+    "ART ESTATES PRIVATE LIMITED",
+    "Office No10 Agarkar Bhavanlbs Road - 411030",
+    "PUNE",
+    "Maharashtra",
+    "411030",
+    "U70102PN2000PTC014558"
+  ],
+  "site_type": "third_party"
+}

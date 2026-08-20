@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website explicitly mentions 'KKJ Securities', which is a name closely associated with the target company 'KKJ FINANCIAL SERVICES PRIVATE LIMITED'. The site also references the company's operations in Mumbai and provides details about its history and services that align with the target company's profile.",
+  "evidence": [
+    "KKJ Securities",
+    "Mumbai",
+    "KKJFS achieved a daily turnover at the Bombay Stock Exchange"
+  ],
+  "site_type": "official"
+}

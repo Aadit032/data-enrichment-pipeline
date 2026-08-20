@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.1,
+  "explanation": "The candidate website does not match the target company's legal name, and there is no corroborating evidence of location or address that links it to the target company. The name 'Jasma' is similar but not identical to 'JAGMA SYSTEM AND SOLUTIONS PRIVATE LIMITED', and the website focuses on engineering and OEM spare parts, which does not indicate a direct connection to the target company.",
+  "evidence": [
+    "Jasma",
+    "Engineering & OEM Spare Parts Manufacturer in India"
+  ],
+  "site_type": "third_party"
+}

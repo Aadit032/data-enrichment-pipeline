@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.5,
+  "explanation": "The candidate website is a LinkedIn page that references IDEAL MOCKUPS PRIVATE LIMITED and provides the same address in Nagpur, but it does not serve as the official website of the company. It lacks direct evidence that it is operated by the company itself.",
+  "evidence": [
+    "IDEAL MOCKUPS PRIVATE LIMITED",
+    "Plot No. F- 9/24 Hingna, MIDC Nagpur, Maharashtra 440016, IN"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about RB DIVERSIFIED PRIVATE LIMITED, including its registration details and location in Mumbai. However, it is a third-party site that aggregates company information rather than being the official website of the company itself. There is no direct evidence that this site is operated by RB DIVERSIFIED PRIVATE LIMITED.",
+  "evidence": [
+    "RB DIVERSIFIED PRIVATE LIMITED",
+    "registered in Mumbai",
+    "CIN U74120MH2006PTC273542"
+  ],
+  "site_type": "third_party"
+}

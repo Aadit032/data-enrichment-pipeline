@@ -8,7 +8,7 @@ __pycache__/
 .env
 
 # Pipeline artifacts
-.cache/
+# .cache/
 enrichment.log
 results*.json
 *_review.csv

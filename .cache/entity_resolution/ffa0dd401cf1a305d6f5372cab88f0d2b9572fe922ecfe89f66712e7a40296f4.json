@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Rusty Triangle Films Private Limited but does not serve as the official site of the company. The address mentioned on the site (1504 15TH FLOOR INTERFACE HEIGHTS OFF LINK ROAD MALAD WEST MUMBAI) does not match the target company's address (1301, PALM SPRING COMPLEX, 2/D WING CHS LTD, LINK ROAD, NEAR D-MART, BEHIND CROMA, MUMBAI). Therefore, it cannot be confirmed as the same entity.",
+  "evidence": [
+    "Rusty Triangle Films Private Limited",
+    "Mumbai",
+    "1504 15TH FLOOR INTERFACE HEIGHTS OFF LINK ROAD MALAD WEST MUMBAI MH 400064 IN"
+  ],
+  "site_type": "third_party"
+}

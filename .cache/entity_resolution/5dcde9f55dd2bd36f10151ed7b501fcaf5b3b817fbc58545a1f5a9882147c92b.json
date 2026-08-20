@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The candidate website is for 'Libra Interiors', which is a different entity focused on luxury furniture and home décor. There is no evidence linking it to 'Libra Decor Private Limited' in Mumbai, and the pincode and address do not match. The name similarity is not sufficient to establish a match.",
+  "evidence": [
+    "Libra Interiors",
+    "pincode: 895800"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.8,
+  "explanation": "The candidate website explicitly mentions the exact legal name 'MANAK BANGLES PRIVATE LIMITED' and provides corroborating evidence of the location in Maharashtra with the matching pincode 400062. This indicates a strong likelihood that the website pertains to the same legal entity.",
+  "evidence": [
+    "MANAK BANGLES PRIVATE LIMITED",
+    "Maharashtra",
+    "400062"
+  ],
+  "site_type": "third_party"
+}

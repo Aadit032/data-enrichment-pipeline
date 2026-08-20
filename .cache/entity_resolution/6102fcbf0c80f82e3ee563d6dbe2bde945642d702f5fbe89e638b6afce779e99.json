@@ -1,0 +1,9 @@
+{
+  "is_match": false,
+  "confidence": 0.0,
+  "explanation": "The candidate website is LinkedIn, which is a professional networking platform and does not belong to RAHUL PHOTOGRAPHIC COMPANY PRIVATE LIMITED. There is no evidence linking the site to the target company, and it does not provide any specific information about the company itself.",
+  "evidence": [
+    "none"
+  ],
+  "site_type": "third_party"
+}

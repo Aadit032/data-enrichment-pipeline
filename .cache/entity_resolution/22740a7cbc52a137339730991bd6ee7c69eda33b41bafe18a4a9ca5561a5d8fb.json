@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website explicitly states that it is a division of NILESH GAIKWAD GROUP PRIVATE LIMITED, and it is located in Pune, matching the target company's city. The address provided in the evidence also corroborates the connection to the target company.",
+  "evidence": [
+    "Captain Nilesh Holidays, Div. of NILESH GAIKWAD GROUP PRIVATE LIMITED",
+    "Pune",
+    "411030"
+  ],
+  "site_type": "official"
+}

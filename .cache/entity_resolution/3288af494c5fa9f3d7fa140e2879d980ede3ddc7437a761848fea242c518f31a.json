@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides detailed information about Smitin Marketing Private Limited, including the exact legal name and a matching address in Mumbai. The evidence is corroborated by the presence of the company's registration details and location.",
+  "evidence": [
+    "Smitin Marketing Private Limited",
+    "4 Adityaman C.H.S., Mahavir road, Kanti Nagar, Andheri East, Mumbai MH 400059 IN",
+    "CIN: U74120MH2012PTC231089"
+  ],
+  "site_type": "third_party"
+}

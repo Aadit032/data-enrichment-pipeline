@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides explicit evidence of the exact legal name 'VIVA FACILITY SERVICES PRIVATE LIMITED' along with a matching address in Mumbai, which confirms it as the same entity.",
+  "evidence": [
+    "VIVA FACILITY SERVICES PRIVATE LIMITED",
+    "80, KAWALI COMPOUND, N. M. JOSHI MARG, LOWER PAREL, Mumbai, Maharashtra, 400013"
+  ],
+  "site_type": "third_party"
+}

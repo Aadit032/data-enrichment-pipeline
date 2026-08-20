@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides explicit evidence of the exact legal name 'SHIMSHON ADVISORY PRIVATE LIMITED' along with a matching address in Mumbai, which confirms it is the same company. The presence of the legal entity identifier and detailed address corroborates the match.",
+  "evidence": [
+    "SHIMSHON ADVISORY PRIVATE LIMITED",
+    "601, GAYATRI CHS LTD., MUMBAI, 400092, IN"
+  ],
+  "site_type": "third_party"
+}

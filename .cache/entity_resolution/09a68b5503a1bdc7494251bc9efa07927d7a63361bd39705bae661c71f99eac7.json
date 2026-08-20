@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website explicitly states the legal name 'Om Shri Sai Cranes India Pvt. Ltd.' and provides corroborating location details, including 'Navi Mumbai, Maharashtra, 410218', which matches the target company's address. This strong alignment in both name and location supports a high confidence in the match.",
+  "evidence": [
+    "Om Shri Sai Cranes India Pvt. Ltd.",
+    "Navi Mumbai, Maharashtra, 410218"
+  ],
+  "site_type": "third_party"
+}

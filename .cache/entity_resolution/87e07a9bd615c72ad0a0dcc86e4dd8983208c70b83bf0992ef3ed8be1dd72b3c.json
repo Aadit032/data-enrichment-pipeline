@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website explicitly uses the exact legal name 'Ideal Mockups' and provides a matching address in Nagpur, Maharashtra, along with the same pincode. This strong correlation between the name and location confirms that the website belongs to the same legal entity.",
+  "evidence": [
+    "Ideal Mockups",
+    "F-9/24, Hingna Rd, MIDC, Lokmanya Nagar, Nagpur, Maharashtra 440016"
+  ],
+  "site_type": "official"
+}

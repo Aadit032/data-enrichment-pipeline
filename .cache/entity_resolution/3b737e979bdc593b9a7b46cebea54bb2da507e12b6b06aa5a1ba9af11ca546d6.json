@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.1,
+  "explanation": "The candidate website is for 'Vidya & Company' based in Kolkata, which is a different legal entity than 'Vidhya Accounts Consultants Private Limited' in Mumbai. There is no evidence linking the two companies as the addresses and names do not match.",
+  "evidence": [
+    "Vidya & Company",
+    "316 , Third Floor, Center Point, 21, Hemant Basu Sarani, Kolkata- 711101"
+  ],
+  "site_type": "third_party"
+}

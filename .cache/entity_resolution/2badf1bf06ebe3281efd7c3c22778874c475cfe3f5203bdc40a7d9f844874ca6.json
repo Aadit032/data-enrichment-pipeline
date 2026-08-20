@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website references 'Sai Net Services Pvt Ltd' and mentions Sakinaka, Mumbai, but it does not provide evidence that it is the official site of the company. The address listed on the site is different from the target company's address, indicating it may be a different entity or a third-party listing.",
+  "evidence": [
+    "Sai Net Services Pvt Ltd",
+    "Sakinaka, Mumbai",
+    "Gala No. 1, Makhariya Compund, Nair Wadi, Khairani Road, Near Sri Maheshwara Temple, Sakinaka, Mumbai - 400072"
+  ],
+  "site_type": "third_party"
+}

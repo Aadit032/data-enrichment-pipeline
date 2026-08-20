@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about 'Mangalam Autobuild Private Limited' but does not serve as the official site of the company. It appears to be a third-party directory or information site that lists company details without direct evidence of being operated by the company itself.",
+  "evidence": [
+    "Mangalam Autobuild Private Limited",
+    "CIN Status Active",
+    "State / ROC Mumbai"
+  ],
+  "site_type": "third_party"
+}

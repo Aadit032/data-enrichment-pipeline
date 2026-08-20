@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.4,
+  "explanation": "The candidate website mentions 'NARICHANIA & NARICHANIA' and provides an address in Mumbai, but it does not confirm that this is the official site of the target company. The presence of '&' in the name suggests it may not be the exact legal entity as listed in the target company. Additionally, the site appears to be a directory or register rather than an official company website.",
+  "evidence": [
+    "NARICHANIA & NARICHANIA",
+    "59 Lakshmi Insurance Building, 22 Sir Phirozshah Mehta Road, Mumbai 400001, India",
+    "Mumbai, India"
+  ],
+  "site_type": "third_party"
+}

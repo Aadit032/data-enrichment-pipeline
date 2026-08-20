@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website is a third-party profile page from Tracxn that provides information about FOXYMORON MEDIA SOLUTIONS PRIVATE LIMITED, including its address and corporate details. However, it does not serve as the official website of the company, and thus cannot be considered an exact match.",
+  "evidence": [
+    "FOXYMORON MEDIA SOLUTIONS PRIVATE LIMITED",
+    "Building G & D-1, Paragon Condominium, Pandurang Budhkar Marg, Worli, Mumbai, Maharashtra, 400013"
+  ],
+  "site_type": "third_party"
+}

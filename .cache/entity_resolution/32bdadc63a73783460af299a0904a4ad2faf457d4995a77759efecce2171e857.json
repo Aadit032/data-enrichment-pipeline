@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.5,
+  "explanation": "The candidate website provides detailed information about OM ELECTROTECH SOLUTIONS PRIVATE LIMITED, including its registered address and company details. However, it is a third-party site (Tofler) that aggregates company information rather than being the official website of the company itself.",
+  "evidence": [
+    "OM ELECTROTECH SOLUTIONS PRIVATE LIMITED",
+    "PLOT NO 32 SHRI TULJAI MSEBHOUSING SOC NEAR H T LINE VISHRAMBAG, SANGLI, Maharashtra - 416415"
+  ],
+  "site_type": "third_party"
+}

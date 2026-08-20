@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.8,
+  "explanation": "The candidate website contains the exact legal name 'Topspire Analytical Services Private Limited' and mentions the city 'Mumbai', which corroborates the target company's details. This provides a strong indication that the website belongs to the same legal entity.",
+  "evidence": [
+    "Topspire Analytical Services Private Limited",
+    "Mumbai"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,9 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website explicitly states the legal name 'Walnut Consultancy Services Pvt Ltd' and describes its services, indicating it is the same company as the target. However, there is no corroborating location evidence provided.",
+  "evidence": [
+    "Walnut Consultancy Services Pvt Ltd"
+  ],
+  "site_type": "official"
+}

@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The candidate website refers to 'Smit Marketing' located in Masjid Bunder, Mumbai, which is a different name and address than the target company 'SMITIN MARKETING PRIVATE LIMITED' located in Andheri East, Mumbai. There is no direct evidence linking the two entities as the same company.",
+  "evidence": [
+    "Smit Marketing",
+    "Masjid Bunder, Mumbai, Maharashtra",
+    "205, 126 New standard Building, Veer Vithaldas Chandan street, Vadgadi, Masjid, Masjid Bunder, Mumbai, Maharashtra"
+  ],
+  "site_type": "third_party"
+}

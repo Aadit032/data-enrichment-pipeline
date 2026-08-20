@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website references 'M/s Atulya Ventures Private Limited' but provides an address in Andheri (East), Mumbai, which does not match the target company's address in Prabhadevi, Mumbai. The site appears to be a trademark registration page rather than the official company site.",
+  "evidence": [
+    "M/s Atulya Ventures Private Limited",
+    "Andheri (East), Mumbai 400099"
+  ],
+  "site_type": "third_party"
+}

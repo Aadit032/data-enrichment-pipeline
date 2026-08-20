@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Artarna Multi Trading Private Limited but is operated by a third-party platform (The Company Check) that aggregates company data. There is no direct evidence that this is the official website of the company itself.",
+  "evidence": [
+    "Artarna Multi Trading Private Limited",
+    "Worli, Maharashtra, India",
+    "CIN U74110MH2011PTC215153"
+  ],
+  "site_type": "third_party"
+}

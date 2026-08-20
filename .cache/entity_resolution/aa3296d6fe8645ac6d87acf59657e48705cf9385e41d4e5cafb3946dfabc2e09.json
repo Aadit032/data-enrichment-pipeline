@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides an exact match of the legal name 'IDEAL MOCKUPS PRIVATE LIMITED' along with the registered address in Nagpur, Maharashtra, which corresponds to the target company. The information is corroborated by the mention of the company's incorporation details and corporate identification number.",
+  "evidence": [
+    "IDEAL MOCKUPS PRIVATE LIMITED",
+    "F-9/24 MIDC HINGNA INDUSTRIAL AREA, Indl.Area Nagpur, Nagpur, Nagpur, Maharashtra, India, 440016",
+    "CIN U74120MH2011PTC219323"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Fincomm Solutions Private Limited, including its incorporation details and directors, but it does not serve as the official website of the company. It appears to be a third-party site that aggregates company information rather than being operated by the company itself.",
+  "evidence": [
+    "Fincomm Solutions Private Limited",
+    "CIN Status Active",
+    "State / ROC Mumbai"
+  ],
+  "site_type": "third_party"
+}

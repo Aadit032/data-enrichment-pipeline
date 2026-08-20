@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.1,
+  "explanation": "The candidate website does not provide any evidence that it belongs to LIBRA DECOR PRIVATE LIMITED. It appears to be a directory or information site that lists various businesses, including some in Mumbai, but does not confirm a direct link to the target company.",
+  "evidence": [
+    "Mumbai",
+    "C.c.i. Mumbai, 400021, India"
+  ],
+  "site_type": "third_party"
+}

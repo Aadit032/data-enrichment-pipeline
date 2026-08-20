@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides detailed information about Manak Bangles Private Limited, including the exact legal name and address. However, it is a third-party site that aggregates company information rather than being the official website of the company itself.",
+  "evidence": [
+    "Manak Bangles Private Limited",
+    "GALA NO. 4, BLDG. NO. 4, PIRAMAL INDUSTRIAL ESTATE S. V. ROAD, GOREGAON (WEST), MUMBAI, Maharashtra, 400062-India"
+  ],
+  "site_type": "third_party"
+}

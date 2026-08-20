@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The candidate website provides information about 'M/S Ideal Mockups Private Limited' located in Nagpur, Maharashtra, but it is a third-party site (The Company Check) that aggregates company data rather than being the official website of the company itself. There is no direct evidence that this site is operated by the company.",
+  "evidence": [
+    "M/S Ideal Mockups Private Limited",
+    "Nagpur, Maharashtra",
+    "Micro enterprise engaged in the Other Manufacturing"
+  ],
+  "site_type": "third_party"
+}

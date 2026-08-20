@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website refers to 'MANAK JEWELLERS PRIVATE LIMITED', which is a different legal entity from the target company 'MANAK BANGLES PRIVATE LIMITED'. Although both companies are located in Mumbai and share a similar name, they are distinct entities. The evidence does not support a match to the exact legal entity.",
+  "evidence": [
+    "MANAK JEWELLERS PRIVATE LIMITED",
+    "UNIT NO. 1 & 2, GROUND FLOOR, PIRAMAL INDUSTRIAL PREMISES, S. V. ROAD, GOREGAON (WEST), MUMBAI, Maharashtra, India, 400062"
+  ],
+  "site_type": "third_party"
+}

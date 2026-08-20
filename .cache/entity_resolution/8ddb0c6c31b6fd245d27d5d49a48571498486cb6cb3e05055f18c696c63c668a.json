@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides detailed information about Sai Net Services Private Limited, including the exact legal name and address. However, it is a third-party site that aggregates company information rather than being the official website of the company itself.",
+  "evidence": [
+    "Sai Net Services Private Limited",
+    "27-28, UPPER FLOOR, BARNAD MARKET, LINK ROAD OPP ASHA KRISHNA BLDG, SAKINAKA, MUMBAI, Maharashtra, 400072"
+  ],
+  "site_type": "third_party"
+}

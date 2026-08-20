@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Nth Venture Private Limited but is operated by The Company Check, which is a third-party platform. While it mentions the exact company name and provides the correct address, it does not serve as the official website of the company itself.",
+  "evidence": [
+    "Nth Venture Private Limited",
+    "801/802 Tulsani Chambers, 8 Th Floor, Free Press Journal Marg, Nariman Point, Mumbai, Maharashtra, India – 400021"
+  ],
+  "site_type": "third_party"
+}

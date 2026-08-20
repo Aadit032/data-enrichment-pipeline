@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.5,
+  "explanation": "The candidate website provides detailed information about RUSHI HOSPITALITY SERVICES PRIVATE LIMITED, including the exact legal name and address, but it is hosted on Tofler, which is a third-party site and does not indicate that it is the official website of the company.",
+  "evidence": [
+    "RUSHI HOSPITALITY SERVICES PRIVATE LIMITED",
+    "103,1ST FLOOR, RONIT ARCADE,OPP.TELEPHONE EXCHANGE, POISAR, S.V.ROAD, KANDIVALI (W), MUMBAI, Maharashtra - 400057",
+    "Mumbai"
+  ],
+  "site_type": "third_party"
+}

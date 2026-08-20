@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.95,
+  "explanation": "The candidate site https://nsdl.co.in/ displays the exact company name (NSDL) and includes the full address matching the target company’s registered location in Bandra Kurla Complex, Mumbai (Plot C-32, 3rd Floor, Naman Chambers, G Block, 400051). The domain and title also indicate it is the official website of National Securities Depository Limited.",
+  "evidence": [
+    "Home - NSDL",
+    "Depository Limited 3rd Floor, Naman Chamber, Plot C-32, G-Block, Bandra Kurla Complex, Bandra East, Mumbai , Maharashtra - 400 051"
+  ],
+  "site_type": "official"
+}

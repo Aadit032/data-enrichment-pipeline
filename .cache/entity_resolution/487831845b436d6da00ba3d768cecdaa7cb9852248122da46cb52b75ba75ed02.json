@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.0,
+  "explanation": "The candidate website is for a company named EximFlow, which is focused on AI training and consulting for export-import businesses in Vietnam. There is no mention of AMFLOW EXIM PRIVATE LIMITED or any corroborating evidence linking it to the target company in Pune, India. The names are similar but refer to different entities operating in different countries.",
+  "evidence": [
+    "EximFlow",
+    "Đào tạo & Tư vấn Ứng dụng AI cho Doanh nghiệp Xuất Nhập Khẩu"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The page displays the exact legal name \"Blond Design Private Limited\" along with the full registered address and CIN that match the target company. The domain mycorporateinfo.com is a third‑party information aggregator, not the company’s own site, so the match is to a third‑party reference of the entity.",
+  "evidence": [
+    "Blond Design Private Limited",
+    "Kitab Mahal, 3rd Floor, Plot No-192 Dadabhai Naoroji Road, Azad Maidan, Fort Mumbai Mumbai City MH 400001 IN",
+    "CIN: U74120MH2012PTC232444"
+  ],
+  "site_type": "third_party"
+}

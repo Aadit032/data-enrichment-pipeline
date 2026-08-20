@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website is a third-party profile page that provides information about NILESH GAIKWAD GROUP PRIVATE LIMITED, including its address and registration details. However, it does not serve as the official website of the company, and there is no direct evidence that it is operated by the company itself.",
+  "evidence": [
+    "NILESH GAIKWAD GROUP PRIVATE LIMITED",
+    "9 SADASHIV PETH 10/11 KELGA SALES SHASTRI, Pune, PUNE, Maharashtra, India, 411030"
+  ],
+  "site_type": "third_party"
+}

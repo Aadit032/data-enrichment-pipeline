@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides an exact match of the legal name 'RUSHI HOSPITALITY SERVICES PRIVATE LIMITED' along with the complete registered address in Mumbai, which corroborates the target company's details.",
+  "evidence": [
+    "RUSHI HOSPITALITY SERVICES PRIVATE LIMITED",
+    "103,1ST FLOOR, RONIT ARCADE,OPP.TELEPHONE EXCHANGE POISAR, S.V.ROAD, KANDIVALI (W),, MUMBAI, Maharashtra, 400057, India"
+  ],
+  "site_type": "third_party"
+}

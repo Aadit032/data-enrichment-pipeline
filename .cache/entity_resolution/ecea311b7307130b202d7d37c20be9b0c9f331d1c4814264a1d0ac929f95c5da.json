@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Nth Venture Private Limited but does not serve as the official site of the company. It lists a different address in Cuffe Parade, Mumbai, which does not match the target company's address in Nariman Point. The presence of the same company name does not confirm it as the same legal entity.",
+  "evidence": [
+    "Nth Venture Private Limited",
+    "Cuffe Parade, Mumbai 400005",
+    "Registration Number 270072"
+  ],
+  "site_type": "third_party"
+}

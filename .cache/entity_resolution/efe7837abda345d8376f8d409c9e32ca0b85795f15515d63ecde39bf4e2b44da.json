@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The page is a third‑party profile on qorpiq.com that displays the company’s MCA information, including its legal name, registered office address and pincode. It does not provide any evidence that the domain is operated by ART ESTATES PRIVATE LIMITED itself, nor does it present official branding or contact details that would indicate ownership. Therefore, it is not the company’s own website.",
+  "evidence": [
+    "ART ESTATES PRIVATE LIMITED",
+    "OFFICE NO10 AGARKAR BHAVANLBS ROAD, NA, PUNE, Pune, Maharashtra, 411030, India",
+    "411030"
+  ],
+  "site_type": "third_party"
+}

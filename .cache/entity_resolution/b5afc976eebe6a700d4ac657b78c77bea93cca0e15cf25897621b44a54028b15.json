@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides an exact match of the legal name 'ROCKSTARZ FILMS PRIVATE LIMITED' along with the complete address that matches the target company, including the city and pincode. This strong corroboration of both name and location indicates a high confidence that this is the same legal entity.",
+  "evidence": [
+    "ROCKSTARZ FILMS PRIVATE LIMITED",
+    "61, 2ND FLOOR, JUHU SUPREME SHOPPING CENTRE, GULMOHAR X ROAD NO. 9, J.V.P.D., JUHU, Mumbai City, MUMBAI, Maharashtra, India, 400049"
+  ],
+  "site_type": "third_party"
+}

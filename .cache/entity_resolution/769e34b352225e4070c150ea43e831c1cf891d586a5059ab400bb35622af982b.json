@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.5,
+  "explanation": "The candidate website provides detailed information about SHIMSHON ADVISORY PRIVATE LIMITED, including its exact name and address. However, it is a third-party site (Tofler) that aggregates company information rather than being the official website of the company itself. Therefore, while it confirms the existence of the company, it does not serve as the company's own site.",
+  "evidence": [
+    "SHIMSHON ADVISORY PRIVATE LIMITED",
+    "601, Gayatri CHS LTD. Jayraj Nagar, Vazira Naka, Borivali West, Mumbai City, Maharashtra, India, 400092"
+  ],
+  "site_type": "third_party"
+}

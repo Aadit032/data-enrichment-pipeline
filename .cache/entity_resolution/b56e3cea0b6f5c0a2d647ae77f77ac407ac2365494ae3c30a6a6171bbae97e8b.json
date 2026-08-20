@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about SAI NET SERVICES but does not confirm that it is the official site of the company. The address mentioned is different from the target company's address, and the site appears to be a third-party service providing GST information rather than the company's own website.",
+  "evidence": [
+    "GST Number for SAI NET SERVICES is 27AJEPK1821A1ZV",
+    "Mumbai",
+    "ADDRESS: OFFICE NO 2 GRD FLOOR, 190, SATNAM MANSION, B A ROAD, DADAR EAST, Mumbai, Maharashtra, 400014"
+  ],
+  "site_type": "third_party"
+}

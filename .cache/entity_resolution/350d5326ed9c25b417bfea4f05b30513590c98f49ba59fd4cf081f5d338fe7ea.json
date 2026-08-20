@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.92,
+  "explanation": "The page displays the exact legal name, registered office address, pincode, and company registration number that match the target company. The domain is a third‑party data aggregator, not the company’s own site, so it is classified as third_party.",
+  "evidence": [
+    "ART ESTATES PRIVATE LIMITED",
+    "OFFICE NO10 AGARKAR BHAVANLBS ROAD PUNE, Maharashtra, 411030",
+    "INU70102014558"
+  ],
+  "site_type": "third_party"
+}

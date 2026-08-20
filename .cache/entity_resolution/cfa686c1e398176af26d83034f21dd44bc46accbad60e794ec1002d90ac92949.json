@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about a director associated with MANGALAM AUTOBUILD PRIVATE LIMITED but does not confirm that it is the official site of the company. There is no direct evidence of the company's name, address, or any official branding on the site.",
+  "evidence": [
+    "MANGALAM AUTOBUILD PRIVATE LIMITED",
+    "PRATAP SHARAD MULAY (DIN: 00401572)"
+  ],
+  "site_type": "third_party"
+}

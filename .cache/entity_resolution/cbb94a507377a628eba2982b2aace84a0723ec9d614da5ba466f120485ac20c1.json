@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.5,
+  "explanation": "The candidate website provides detailed information about MEGASTEPS INFRAPOWER & MULTITRADING PRIVATE LIMITED, including its legal name, CIN, and address. However, it is hosted on a third-party site (Falcon Ebiz) and does not clearly indicate that it is the official website of the company.",
+  "evidence": [
+    "MEGASTEPS INFRAPOWER & MULTITRADING PRIVATE LIMITED",
+    "CIN U74110PN2016PTC165386",
+    "Office No. 1, Sn. 57/3, Mayura Vihar Blg-q Kothrud, Pune, Pune, Maharashtra, India, 411029"
+  ],
+  "site_type": "third_party"
+}

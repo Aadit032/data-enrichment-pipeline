@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website refers to 'S B Enterprises' which is a different name from the target company 'SCOTBAY ENTERPRISES PRIVATE LIMITED'. Although both are located in Mumbai, the names are not identical, and there is no evidence linking the two as the same legal entity. The address provided for S B Enterprises is also different (Girgaon, Mumbai, Maharashtra, 400004) compared to the target company's address (Andheri, Mumbai, Maharashtra, 400053).",
+  "evidence": [
+    "S B Enterprises",
+    "Girgaon, Mumbai, Maharashtra, 400004"
+  ],
+  "site_type": "third_party"
+}

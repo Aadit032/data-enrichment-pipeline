@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.1,
+  "explanation": "The candidate website refers to 'OAK SUPPORT LIMITED', which is a different legal entity than 'OAK SUPPORT SERVICES PRIVATE LIMITED'. There is no corroborating evidence of location or address that links it to the target company in Mumbai.",
+  "evidence": [
+    "OAK SUPPORT LIMITED",
+    "Regal House, 70 London Road, Twickenham, TW1 3QS"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Nth Venture Private Limited, including its legal name and registered address. However, it is a third-party site (Address Adda) that aggregates company information rather than being the official website of the company itself. Therefore, it does not meet the criteria for an exact match.",
+  "evidence": [
+    "Nth Venture Private Limited",
+    "801/802, Tulsani Chambers, 8 Th Floor, Free Press Journal Marg, Nariman Point, Mumbai, Maharashtra, 400021"
+  ],
+  "site_type": "third_party"
+}

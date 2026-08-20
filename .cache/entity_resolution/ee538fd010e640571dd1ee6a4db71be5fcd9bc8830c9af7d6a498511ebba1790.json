@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.5,
+  "explanation": "The candidate website provides the exact legal name of the target company and mentions the state and pincode, but lacks specific corroborating evidence of the city or address. The information is sourced from a third-party GST verification site, which does not confirm that it is the official website of the company.",
+  "evidence": [
+    "JAGMA SYSTEM AND SOLUTIONS PRIVATE LIMITED",
+    "Maharashtra",
+    "422013"
+  ],
+  "site_type": "third_party"
+}

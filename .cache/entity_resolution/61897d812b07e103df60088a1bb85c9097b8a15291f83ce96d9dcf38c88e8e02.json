@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides the exact legal name 'SALDANHA REAL ESTATE PRIVATE LIMITED' along with a matching address in Mumbai, which includes specific details that corroborate the target company's information.",
+  "evidence": [
+    "SALDANHA REAL ESTATE PRIVATE LIMITED",
+    "Salcette Catholic Chs, Flat No.1, Plot No.29, 56, Hill Road, Opp. Bata Shoe Shop, Band, Ra (West) - 400050",
+    "MUMBAI, Maharashtra, 400050"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.0,
+  "explanation": "The candidate website is for 'All India ITR', which is operated by 'Corwhite Solutions Private Limited' and does not match the target company 'TECHVIVE SOLUTIONS PRIVATE LIMITED'. There is no evidence of a connection to the target company, and the addresses and services provided are unrelated.",
+  "evidence": [
+    "All India ITR",
+    "Corwhite Solutions Private Limited"
+  ],
+  "site_type": "third_party"
+}

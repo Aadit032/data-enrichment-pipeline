@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides detailed information about Nilesh Gaikwad Group Private Limited, including its legal name and some address details. However, it does not appear to be the official website of the company, as it is a third-party site that aggregates company information rather than being operated by the company itself.",
+  "evidence": [
+    "Nilesh Gaikwad Group Private Limited",
+    "9 Sadashiv Peth 10/11 Kelga Sales Shastri, Maharashtra",
+    "CIN: U74999PN2013PTC147693"
+  ],
+  "site_type": "third_party"
+}

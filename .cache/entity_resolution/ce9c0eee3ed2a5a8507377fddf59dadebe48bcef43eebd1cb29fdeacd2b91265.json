@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website explicitly states the legal name 'Prophandy Technologies Private Limited' and provides corroborating location evidence, including the city 'Pune' and the postal code '411045', which matches the target company's details.",
+  "evidence": [
+    "Prophandy Technologies Private Limited",
+    "Pune, Maharashtra, 411045"
+  ],
+  "site_type": "third_party"
+}

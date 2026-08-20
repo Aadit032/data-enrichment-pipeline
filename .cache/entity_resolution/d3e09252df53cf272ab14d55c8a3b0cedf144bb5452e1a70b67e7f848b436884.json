@@ -1,0 +1,12 @@
+{
+  "is_match": false,
+  "confidence": 0.4,
+  "explanation": "The candidate website provides information about RUSTY TRIANGLE FILM PRIVATE LIMITED, including its GSTIN and address in Maharashtra. However, it does not confirm that this is the official website of the company, and the evidence is sourced from a third-party GST information site.",
+  "evidence": [
+    "RUSTY TRIANGLE FILM PRIVATE LIMITED",
+    "GSTIN: 27AAGCR5094L1ZS",
+    "Maharashtra",
+    "PIN Code 400064"
+  ],
+  "site_type": "third_party"
+}

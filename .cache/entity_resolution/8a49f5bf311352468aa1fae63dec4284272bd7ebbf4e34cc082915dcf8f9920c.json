@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.1,
+  "explanation": "The candidate website refers to 'Atul Enterprises', which is a different name from the target company 'Atulya Ventures Private Limited'. There is no corroborating evidence of the same legal entity, such as matching address or city. The services offered do not indicate a direct connection to the target company.",
+  "evidence": [
+    "Atul Enterprises",
+    "Professional Cleaning Services"
+  ],
+  "site_type": "third_party"
+}

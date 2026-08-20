@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides the exact legal name of the target company, OM ELECTROTECH SOLUTIONS PRIVATE LIMITED, along with the registered address that matches the target company's address in Sangli, Maharashtra. This strong corroboration of both name and location supports a high confidence in the match.",
+  "evidence": [
+    "OM ELECTROTECH SOLUTIONS PRIVATE LIMITED",
+    "PLOT NO 32 SHRI TULJAI MSEBHOUSING SOC NEAR H T LINE VISHRAMBAG SANGLI MH 416415 IN",
+    "CIN U74120MH1986PTC039720"
+  ],
+  "site_type": "third_party"
+}

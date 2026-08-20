@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The candidate website refers to 'JAG Software' but does not provide any evidence linking it to 'JAGMA SYSTEM AND SOLUTIONS PRIVATE LIMITED' in Mumbai or Nashik. There is no matching address or pincode, and the name 'JAG' is too generic to confirm an exact match. The site appears to be a third-party description of a software company without clear ownership evidence.",
+  "evidence": [
+    "JAG Software",
+    "customized software",
+    "outsourcing & consulting"
+  ],
+  "site_type": "third_party"
+}

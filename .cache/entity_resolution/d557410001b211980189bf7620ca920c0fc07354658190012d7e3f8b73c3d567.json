@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about FOXYMORON MEDIA SOLUTIONS PRIVATE LIMITED, including its address and registration details. However, it is a third-party site (SensiBook) that aggregates company information rather than being the official website of the company itself.",
+  "evidence": [
+    "FOXYMORON MEDIA SOLUTIONS PRIVATE LIMITED",
+    "Building G & D-1, Paragon Condominium, Pandurang Budhkar Marg, Worli - 400013",
+    "Mumbai, Maharashtra, 400013"
+  ],
+  "site_type": "third_party"
+}

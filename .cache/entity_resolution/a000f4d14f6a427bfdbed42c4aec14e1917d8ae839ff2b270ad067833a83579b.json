@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about the target company, including its legal name and address, but it is a third-party site (The Company Check) that aggregates company data rather than being the official website of the company itself. There is no direct evidence that the site is operated by the company.",
+  "evidence": [
+    "Megasteps Infrapower & Multitrading Private Limited",
+    "Office No. 1 Sn. 57/3 Mayura Vihar Blg – Q Kothrud, Pune, Maharashtra, India – 411029",
+    "CIN U74110PN2016PTC165386"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides detailed information about Prophandy Technologies Private Limited, including its legal name and address. However, it is a third-party site that aggregates company information rather than being the official website of the company itself.",
+  "evidence": [
+    "Prophandy Technologies Private Limited",
+    "Fiesta flat no B 802 Sr no. 35/2/1/2 Nr Roharsh Motors Baner PUNE Pune MH 411045 IN",
+    "CIN: U70109PN2019PTC185573"
+  ],
+  "site_type": "third_party"
+}

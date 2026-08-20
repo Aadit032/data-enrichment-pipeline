@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website references 'Niveza India Pvt Ltd.' but provides a different address (Teerth Technospace, A-203, Banglore Highway, near Mercedes Showroom, Baner, Pune) which does not match the target company's address. This indicates it is likely a different entity or a listing rather than the official site.",
+  "evidence": [
+    "Niveza India Pvt Ltd.",
+    "Teerth Technospace, A-203, Banglore Highway, near Mercedes Showroom, Baner, Pune, 411045"
+  ],
+  "site_type": "third_party"
+}

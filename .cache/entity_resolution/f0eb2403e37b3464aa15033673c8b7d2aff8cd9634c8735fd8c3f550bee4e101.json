@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.5,
+  "explanation": "The candidate website provides detailed information about TOPSPIRE ANALYTICAL SERVICES PRIVATE LIMITED, including the exact legal name and address. However, it is a profile page from a third-party site (zauba.company) and does not indicate that it is the official website of the company itself.",
+  "evidence": [
+    "TOPSPIRE ANALYTICAL SERVICES PRIVATE LIMITED",
+    "101, BLDG. NO.3, SIDDHI CO OP HSG SOC. LTD. KAVESAR, OPP VIJAY GARDEN, G.B. ROAD THA,NE (W),THANE,Maharashtra,400615-India"
+  ],
+  "site_type": "third_party"
+}

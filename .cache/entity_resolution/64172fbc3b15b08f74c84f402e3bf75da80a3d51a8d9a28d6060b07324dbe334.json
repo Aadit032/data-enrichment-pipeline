@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Saldanha Real Estate Private Limited but is hosted on a third-party platform (The Company Check) and does not serve as the official site of the company. It contains relevant details such as the company name and location, but lacks direct evidence that it is operated by the company itself.",
+  "evidence": [
+    "Saldanha Real Estate Private Limited",
+    "Mumbai",
+    "CIN U70102MH2015PTC265382"
+  ],
+  "site_type": "third_party"
+}

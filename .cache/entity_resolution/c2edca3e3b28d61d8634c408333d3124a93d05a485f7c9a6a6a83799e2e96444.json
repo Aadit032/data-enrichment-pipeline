@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides detailed information about Narichania Consultancy And Agency Pvt Ltd, including the exact legal name and address. However, it is a third-party site that aggregates company information rather than being the official website of the company itself.",
+  "evidence": [
+    "Narichania Consultancy And Agency Pvt Ltd",
+    "59 LAXMI INSURANCE BLDGSIR P M ROAD FORT MUMBAI MH 400001 IN",
+    "CIN: U74120MH1976PTC019043"
+  ],
+  "site_type": "third_party"
+}

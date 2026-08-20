@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate page lists the exact legal name \"Rushi Hospitality Services Private Limited\" and mentions the city \"Mumbai\", matching the target company's name and location. Although the address is not shown, the name and city together provide a strong, unambiguous link to the same legal entity. The site is a third‑party aggregator, not the company's own domain.",
+  "evidence": [
+    "Rushi Hospitality Services Private Limited",
+    "Mumbai"
+  ],
+  "site_type": "third_party"
+}

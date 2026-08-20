@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website mentions 'Oak Support Services Mumbai' but does not provide a direct link to the official company site or confirm the exact address of the target company. The pincode mentioned (411007) does not match the target company's pincode (400004). Therefore, it is likely a third-party site referencing the company rather than the official site.",
+  "evidence": [
+    "Oak Support Services Mumbai",
+    "OAK SUPPORT SERVICES PRIVATE LIMITED",
+    "pincode: 411007"
+  ],
+  "site_type": "third_party"
+}

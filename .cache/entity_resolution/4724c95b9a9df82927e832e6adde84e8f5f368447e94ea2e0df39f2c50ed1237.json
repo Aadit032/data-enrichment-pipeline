@@ -1,0 +1,12 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides explicit information about 'Viva Facility Services Private Limited' including the exact legal name, address, and city, which matches the target company. The details are corroborated by multiple snippets from the page, confirming the entity's registration and location.",
+  "evidence": [
+    "Viva Facility Services Private Limited",
+    "SHOP NO 80, KAWALI COMPOUND, N.M. JOSHI MARG OPP RAILWAY WORKSHOP, LOWER PAREL, MUMBAI MH 400013 IN",
+    "CIN U74120MH2010PTC205449",
+    "Company is registered in Mumbai (Maharashtra)"
+  ],
+  "site_type": "third_party"
+}

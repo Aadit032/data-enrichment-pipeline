@@ -1,0 +1,9 @@
+{
+  "is_match": false,
+  "confidence": 0.0,
+  "explanation": "The candidate website does not provide any evidence linking it to the target company, LIBRA DECOR PRIVATE LIMITED. There are no mentions of the exact company name, address, or city. The URL suggests it is a profile for 'libra-architects-and-interior-designer', which indicates it may be a different entity or a third-party listing.",
+  "evidence": [
+    "libra-architects-and-interior-designer"
+  ],
+  "site_type": "third_party"
+}

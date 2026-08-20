@@ -1,0 +1,12 @@
+{
+  "is_match": false,
+  "confidence": 0.1,
+  "explanation": "The candidate page is a NoBroker listing for \"Blue Gardenia Tardeo\" in Mumbai (pincode 400007), which is a different project/location from the target company Blue Garden Estates Private Limited (address in Goregaon, pincode 400104). The domain is a third‑party aggregator, not the company’s own site. Therefore the website does not belong to the exact legal entity.",
+  "evidence": [
+    "Blue Gardenia Tardeo",
+    "pincode 400007",
+    "Mumbai",
+    "NoBroker"
+  ],
+  "site_type": "third_party"
+}

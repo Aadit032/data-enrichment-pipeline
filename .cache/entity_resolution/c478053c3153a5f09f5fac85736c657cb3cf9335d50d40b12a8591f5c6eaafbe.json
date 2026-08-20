@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Caprich Consultancy Private Limited, including the exact name and address. However, it is a directory page and does not indicate that it is operated by the company itself, making it a third-party site.",
+  "evidence": [
+    "Caprich Consultancy Private Limited",
+    "Office No.8, First Floor, Ashok Plaza, Mahatma Gandhi Rd, opp. Majestic Theater, Jalna, Maharashtra 431203, India"
+  ],
+  "site_type": "third_party"
+}

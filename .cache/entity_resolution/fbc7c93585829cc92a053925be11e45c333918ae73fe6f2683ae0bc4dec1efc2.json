@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The candidate website refers to 'GALAXY INFOTECH', which is a different name from the target company 'GALAXY INFONET PRIVATE LIMITED'. There is no corroborating evidence linking the two entities, and the address provided (pincode 400004) does not match the target company's address (pincode 400089).",
+  "evidence": [
+    "GALAXY INFOTECH",
+    "pincode 400004"
+  ],
+  "site_type": "third_party"
+}

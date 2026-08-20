@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides an exact match of the legal name 'OXIONA ENERGY SOLUTIONS (INDIA) PRIVATE LIMITED' along with the complete registered address in Mumbai, which corroborates the target company's details.",
+  "evidence": [
+    "OXIONA ENERGY SOLUTIONS (INDIA) PRIVATE LIMITED",
+    "Building No.- 09, Flat No.- 15, SACHIN CHS, MITHAGAR ROAD MULUND (EAST), MUMBAI, Maharashtra, 400081, India"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.92,
+  "explanation": "The candidate page from infoqik.com lists the exact legal name \"BLOND DESIGN PRIVATE LIMITED\" and provides the full registered address, city, state, and pincode that match the target company’s details. The information is unambiguous and directly corresponds to the target entity, confirming a match. However, the domain infoqik.com is a third‑party directory and not operated by the company itself, so the site type is third_party.",
+  "evidence": [
+    "BLOND DESIGN PRIVATE LIMITED",
+    "Kitab Mahal, 3rd Floor, Plot No-192 Dadabhai Naoroji Road, Azad Maidan, Fort Mumbai Mumbai City MH IN 400001",
+    "pincode 400001"
+  ],
+  "site_type": "third_party"
+}

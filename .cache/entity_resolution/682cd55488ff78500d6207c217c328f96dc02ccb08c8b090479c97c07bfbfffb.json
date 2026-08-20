@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Amflow Exim Private Limited but is operated by a third-party platform (The Company Check) that aggregates company data. There is no direct evidence that this is the official website of the company itself.",
+  "evidence": [
+    "Amflow Exim Private Limited",
+    "Pune, Maharashtra, India",
+    "CIN U74110PN2018PTC175785"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The Address Adda page lists \"Blue Garden Estates Private Limited\" with the exact registered office address and pincode that match the target company. The information is unambiguous and directly corresponds to the legal entity, but the domain is a third‑party directory, not the company’s own site.",
+  "evidence": [
+    "Blue Garden Estates Private Limited",
+    "Office No. 09, First Floor, Harmony Mall Near Goregaon Bus Depot, Goregaon Link Road Mumbai Mumbai City Mh In 400104",
+    "pincode 400104"
+  ],
+  "site_type": "third_party"
+}

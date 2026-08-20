@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.4,
+  "explanation": "The candidate website provides information about ARTARNA MULTI TRADING PRIVATE LIMITED, including its registration details and location in Worli, Mumbai. However, it is a third-party site that aggregates company information rather than being the official website of the company itself. There is no direct evidence that this site is operated by the company.",
+  "evidence": [
+    "ARTARNA MULTI TRADING PRIVATE LIMITED",
+    "WORLI, Mumbai",
+    "CIN U74110MH2011PTC215153"
+  ],
+  "site_type": "third_party"
+}

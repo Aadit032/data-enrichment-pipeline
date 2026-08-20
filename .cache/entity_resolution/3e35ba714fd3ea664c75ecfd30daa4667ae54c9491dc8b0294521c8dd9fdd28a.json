@@ -1,0 +1,12 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The page is hosted on Sensibook, a third‑party business intelligence platform, and only references the company. It does not provide any indication that the site is operated by BLUE GARDEN ESTATES PRIVATE LIMITED itself. The evidence confirms the company name and address but not ownership of the domain.",
+  "evidence": [
+    "BLUE GARDEN ESTATES PRIVATE LIMITED",
+    "Office No. 09, First Floor, Harmony Mall Near Goregaon Bus Depot, Goregaon Link R, Oad - 400104",
+    "MUMBAI",
+    "400104"
+  ],
+  "site_type": "third_party"
+}

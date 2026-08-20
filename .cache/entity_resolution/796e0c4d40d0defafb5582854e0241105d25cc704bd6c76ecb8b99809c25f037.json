@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides an exact match of the legal name 'ARTARNA MULTI TRADING PRIVATE LIMITED' along with the complete address that matches the target company's address in Mumbai, including the pincode.",
+  "evidence": [
+    "ARTARNA MULTI TRADING PRIVATE LIMITED",
+    "OFFICE NO E-403,4TH FLOOR,MAHALAXMI SRA CHS LTD PANDURANG BUDHKAR MARG,WORLI,Maharashtra,400030-India",
+    "CIN: U74110MH2011PTC215153"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website explicitly states the legal name 'H Jasvantrai Engineering Pvt. Ltd.' and provides a matching address in Mumbai, including the same pincode. This strong correlation between the name and location confirms that the website belongs to the exact same company.",
+  "evidence": [
+    "H Jasvantrai Engineering Pvt. Ltd.",
+    "301, Sapphire Plaza, Dadabhai Road, Near Gokhalibai School, Vile Parle-West, Mumbai, Maharashtra - 400056",
+    "pincode: 400056"
+  ],
+  "site_type": "official"
+}

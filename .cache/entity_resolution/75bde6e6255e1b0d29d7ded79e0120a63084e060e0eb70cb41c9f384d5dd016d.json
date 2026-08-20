@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Fincomm Solutions Private Limited but is operated by a third-party platform (The Company Check) that aggregates company data. There is no direct evidence that this is the official website of the company itself.",
+  "evidence": [
+    "Fincomm Solutions Private Limited is a 16-year-old active private limited company in Mumbai, Maharashtra.",
+    "517 The Summit Business Park M V Road, Off Gundavli Village Opp Pvr Cinema Andheri East Mumbai, Maharashtra, India – 400093.",
+    "CIN U74120MH2010PTC211383"
+  ],
+  "site_type": "third_party"
+}

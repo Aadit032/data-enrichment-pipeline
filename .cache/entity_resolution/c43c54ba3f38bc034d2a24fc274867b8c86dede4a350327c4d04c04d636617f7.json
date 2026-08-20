@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website explicitly mentions the exact legal name 'Big Business Advisors Private Limited' and provides corroborating address details that match the target company's address in Palghar, Maharashtra. The registration number also aligns with the target company's details, confirming it as the same legal entity.",
+  "evidence": [
+    "Big Business Advisors Private Limited",
+    "B 305, SAGAR NAGAR, AMBA MATA ROAD AT AND POST PALGHAR, PALGHAR, Maharashtra, 401404",
+    "Registration Number 220932"
+  ],
+  "site_type": "third_party"
+}

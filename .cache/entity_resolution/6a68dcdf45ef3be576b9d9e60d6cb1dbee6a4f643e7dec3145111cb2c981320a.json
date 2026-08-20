@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Warp & Weft Enterprises Private Limited but is operated by a third-party platform (The Company Check) that aggregates company data. There is no direct evidence that this is the official website of the company itself.",
+  "evidence": [
+    "Warp & Weft Enterprises Private Limited",
+    "Mumbai, Maharashtra, India",
+    "Registered Address Unit No. 1103 Hubtown Viva Off Western Express Highway Andheri Eas, T., Mumbai, Maharashtra, India – 400060"
+  ],
+  "site_type": "third_party"
+}

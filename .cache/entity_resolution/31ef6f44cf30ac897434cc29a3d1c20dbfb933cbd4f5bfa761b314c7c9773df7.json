@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website references 'Caprich Corporates' and lists a director associated with multiple companies, but does not provide any direct evidence linking it to 'Caprich Consultancy Private Limited' in Mumbai. There is no address or pincode corroboration, and the site appears to be a third-party directory rather than an official company site.",
+  "evidence": [
+    "Caprich Corporates",
+    "Balaso Bhanudas Patil (Director)"
+  ],
+  "site_type": "third_party"
+}

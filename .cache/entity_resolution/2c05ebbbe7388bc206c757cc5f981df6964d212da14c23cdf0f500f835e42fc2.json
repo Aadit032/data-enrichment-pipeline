@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.0,
+  "explanation": "The candidate website is for XIMPEX, which is a different company focused on trade intelligence and consulting services. There is no mention of RAHUL PHOTOGRAPHIC COMPANY PRIVATE LIMITED or any relevant address or location that would connect it to the target company.",
+  "evidence": [
+    "XIMPEX is India's trade intelligence company",
+    "Founded ximpex.in opens in December 2018"
+  ],
+  "site_type": "third_party"
+}

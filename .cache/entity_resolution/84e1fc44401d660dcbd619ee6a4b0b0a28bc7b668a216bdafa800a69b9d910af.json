@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The candidate website references 'RAHUL PHOTOGRAPHIC COMPANY PVT. LTD.' but provides a different address in Tarapur, which is not the same as the target company's address in Mumbai. This indicates it is likely a third-party directory rather than the official site of the target company.",
+  "evidence": [
+    "RAHUL PHOTOGRAPHIC COMPANY PVT. LTD.",
+    "Plot No. N - 195 & 196, MIDC, Tarapur, Dist. Palghar, Boisar (W)-401506, Maharashtra"
+  ],
+  "site_type": "third_party"
+}

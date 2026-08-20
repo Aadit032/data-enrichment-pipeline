@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website references 'Rahul Photographic Company Private Limited' but indicates that the company is located in Vasai, Maharashtra, which is different from the target company's location in Mumbai. This discrepancy in location raises doubts about the exact match.",
+  "evidence": [
+    "Rahul Photographic Company Private Limited",
+    "Vasai, Maharashtra, India"
+  ],
+  "site_type": "third_party"
+}

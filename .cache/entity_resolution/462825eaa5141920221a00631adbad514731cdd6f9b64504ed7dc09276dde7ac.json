@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides a due diligence report on Hungama Digital Services Private Limited but does not operate as the official site of the company. It references the company name and address but is a third-party service that aggregates company information.",
+  "evidence": [
+    "Hungama Digital Services Private Limited",
+    "6Th Floor, Wing A, The Orb Sahar, Village Marol, Andheri (East), Mumbai, Maharashtra, 400099"
+  ],
+  "site_type": "third_party"
+}

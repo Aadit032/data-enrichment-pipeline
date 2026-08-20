@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides explicit evidence of the exact legal name 'KKJ FINANCIAL SERVICES PRIVATE LIMITED' along with the matching address in Mumbai, which confirms it is the same company.",
+  "evidence": [
+    "KKJ FINANCIAL SERVICES PRIVATE LIMITED",
+    "52 Jalan House,5th Floor, Walkeshwar Road,Mumbai,Maharashtra,400006-India",
+    "CIN: U74120MH2010PTC211199"
+  ],
+  "site_type": "third_party"
+}

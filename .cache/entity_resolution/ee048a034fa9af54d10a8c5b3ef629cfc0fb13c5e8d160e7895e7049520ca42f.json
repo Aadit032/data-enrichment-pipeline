@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Topspire Analytical Services Private Limited but does not serve as the official site of the company. It is a third-party site that aggregates company data and does not confirm direct ownership or operation by the company itself.",
+  "evidence": [
+    "Topspire Analytical Services Private Limited",
+    "active company based in Thane"
+  ],
+  "site_type": "third_party"
+}

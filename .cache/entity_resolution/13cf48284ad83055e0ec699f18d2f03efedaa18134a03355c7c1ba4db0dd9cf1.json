@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The candidate website refers to 'M/S Kiran Pharma', which is a different name from the target company 'KIRAN DRUG HOUSE PRIVATE LIMITED'. Although both are located in Mumbai, the name discrepancy and lack of direct evidence linking the two entities suggest they are not the same company.",
+  "evidence": [
+    "M/S Kiran Pharma",
+    "Mumbai, Maharashtra"
+  ],
+  "site_type": "third_party"
+}

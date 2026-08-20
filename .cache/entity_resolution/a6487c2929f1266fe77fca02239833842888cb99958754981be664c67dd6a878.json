@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The candidate website refers to 'GALAXY INFOSOLUTIONS PRIVATE LIMITED', which is a different legal entity from the target company 'GALAXY INFONET PRIVATE LIMITED'. The addresses and names do not match, indicating that they are distinct companies.",
+  "evidence": [
+    "GALAXY INFOSOLUTIONS PRIVATE LIMITED",
+    "3, Radheshyam CHS LTD Juhu Lane, Next to Bluechip Apartment, Andheri(W), Mumbai, Maharashtra, 400058-India"
+  ],
+  "site_type": "third_party"
+}

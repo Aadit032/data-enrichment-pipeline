@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides an exact match of the legal name 'WALNUT CONSULTANCY SERVICES PRIVATE LIMITED' along with the complete address that matches the target company, including the city and pincode.",
+  "evidence": [
+    "WALNUT CONSULTANCY SERVICES PRIVATE LIMITED",
+    "503, Avior, Nirmal Galaxy,Opp Johnson & Johnson, LBS Marg, Mulund West, MUMBAI, Mumbai City, Maharashtra, 400080, India"
+  ],
+  "site_type": "third_party"
+}

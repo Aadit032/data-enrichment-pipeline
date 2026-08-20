@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about RB DIVERSIFIED PRIVATE LIMITED, including its address and registration details, but it is hosted on SensiBook, which is a third-party platform. There is no evidence that this site is operated by the company itself.",
+  "evidence": [
+    "RB DIVERSIFIED PRIVATE LIMITED",
+    "301/401, Aquamarine, Plot Number 273 -B Carter Road Bandra West - 400050",
+    "Mumbai, Maharashtra, 400050"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website is a third-party profile page that provides information about DSPS TECH PLATFORM PRIVATE LIMITED, including its legal name and address. However, it does not serve as the official website of the company, and the information is presented in a directory format rather than as an official company site.",
+  "evidence": [
+    "DSPS TECH PLATFORM PRIVATE LIMITED",
+    "1201-1202, 12th Floor, Wing A, One BKC, G Block Plot No. 66, Bandra Kurla Complex, Bandra (East), Mumbai City, Maharashtra, 400051"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The page is hosted on quickcompany.in, a third‑party company information aggregator. It lists the company name and city but does not provide the official company address, domain ownership, or any indication that the site is operated by Blond Design Private Limited itself. Therefore it does not belong to the exact legal entity.",
+  "evidence": [
+    "Blond Design Private Limited",
+    "Mumbai"
+  ],
+  "site_type": "third_party"
+}

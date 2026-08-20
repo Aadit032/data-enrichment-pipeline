@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides an exact match for the address and includes the name 'KKJSEC', which is a reference to KKJ Financial Services. The address matches the target company's address in Mumbai, confirming the legal entity.",
+  "evidence": [
+    "KKJSEC",
+    "52, JALAN HOUSE 5TH FLOOR WALKESHWAR ROAD MUMBAI MAHARASHTRA INDIA-400006"
+  ],
+  "site_type": "third_party"
+}

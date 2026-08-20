@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Shimshon Advisory Private Limited, including its address and company details, but it is operated by a third-party platform (The Company Check) that aggregates company data rather than being the official site of the company itself. Therefore, it does not meet the criteria for an exact match.",
+  "evidence": [
+    "Shimshon Advisory Private Limited",
+    "601 Gayatri Chs Ltd. Jayraj Nagar Vazira Naka Borivali West, Mumbai, Maharashtra, India – 400092"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,12 @@
+{
+  "is_match": false,
+  "confidence": 0.2,
+  "explanation": "The candidate website refers to 'Triangle Film Company', which is a different name from the target company 'RUSTY TRIANGLE FILMS PRIVATE LIMITED'. There is no evidence of an exact match in the legal name or address, and the site appears to be a third-party directory rather than the official site of the target company.",
+  "evidence": [
+    "Triangle Film Company",
+    "Mumbai, Maharashtra",
+    "Micro enterprise",
+    "Proprietorship Firm incorporated on 01-Apr-2010"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website mentions 'FoxyMoron' as part of the Zoo Media network, but there is no direct evidence that this site is operated by FOXYMORON MEDIA SOLUTIONS PRIVATE LIMITED. The lack of specific address or location details further supports that this is not the official site of the target company.",
+  "evidence": [
+    "Zoo Media network",
+    "FoxyMoron is a full funnel, outcome focussed creative and media agency"
+  ],
+  "site_type": "third_party"
+}

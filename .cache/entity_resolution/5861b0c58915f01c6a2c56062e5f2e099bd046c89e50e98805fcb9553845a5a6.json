@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides explicit details about FOXYMORON MEDIA SOLUTIONS PRIVATE LIMITED, including the exact legal name and a matching registered office address in Mumbai. This strong corroboration of both name and location supports a high confidence in the match.",
+  "evidence": [
+    "FOXYMORON MEDIA SOLUTIONS PRIVATE LIMITED",
+    "Building G & D-1, Paragon Condominium,Pandurang Budhkar Marg, Worli,,Mumbai,Mumbai,Maharashtra,400013-India",
+    "CIN: U74120MH2011PTC218414"
+  ],
+  "site_type": "third_party"
+}

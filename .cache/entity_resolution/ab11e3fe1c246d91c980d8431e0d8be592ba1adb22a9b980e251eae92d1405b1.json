@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about KKJ Financial Services Private Limited, including the exact company name and address. However, it is a third-party site (Tofler) that aggregates company information rather than being the official website of the company itself. Therefore, it does not qualify as an exact match.",
+  "evidence": [
+    "KKJ FINANCIAL SERVICES PRIVATE LIMITED",
+    "52 Jalan House, 5th Floor, Walkeshwar Road, Mumbai, Maharashtra, 400006"
+  ],
+  "site_type": "third_party"
+}

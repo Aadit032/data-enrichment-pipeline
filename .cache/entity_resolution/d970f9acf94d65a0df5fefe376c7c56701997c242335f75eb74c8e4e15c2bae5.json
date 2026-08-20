@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides an exact match of the legal name 'WARP & WEFT ENTERPRISES PRIVATE LIMITED' along with the complete address that matches the target company's address in Mumbai. This strong corroboration of both name and location confirms that the website belongs to the exact same company.",
+  "evidence": [
+    "WARP & WEFT ENTERPRISES PRIVATE LIMITED",
+    "Unit No. 1103, Hubtown Viva, Off Western Express Highway, Andheri East, MUMBAI, Mumbai City, Maharashtra, 400060, India"
+  ],
+  "site_type": "third_party"
+}

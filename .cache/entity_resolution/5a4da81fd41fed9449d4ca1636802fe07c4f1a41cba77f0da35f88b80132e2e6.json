@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides an exact match of the legal name 'BIG BUSINESS ADVISORS PRIVATE LIMITED' along with the registered address in Mumbai, which corroborates the target company's details.",
+  "evidence": [
+    "BIG BUSINESS ADVISORS PRIVATE LIMITED",
+    "B 305, SAGAR NAGAR, AMBA MATA ROAD AT AND POST PALGHAR, PALGHAR, Maharashtra, 401404",
+    "Registered at Registrar of Companies, ROC Mumbai"
+  ],
+  "site_type": "third_party"
+}

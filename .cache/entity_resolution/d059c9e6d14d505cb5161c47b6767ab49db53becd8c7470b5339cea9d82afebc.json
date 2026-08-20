@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.0,
+  "explanation": "The candidate website is for Housing.com, a real estate portal, and does not match the target company ATULYA VENTURES PRIVATE LIMITED in name or location. There is no evidence linking the two entities.",
+  "evidence": [
+    "Housing.com",
+    "real estate portal",
+    "offices in 28 cities across India"
+  ],
+  "site_type": "third_party"
+}

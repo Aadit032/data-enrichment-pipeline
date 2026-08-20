@@ -1,0 +1,9 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website displays the name 'Niveza' but lacks any specific address or location information that confirms it is the same legal entity as 'NIVEZA INDIA PRIVATE LIMITED' in Pune. Without corroborating evidence of the exact address or city, it cannot be determined that this is the official site of the target company.",
+  "evidence": [
+    "Niveza"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website explicitly mentions 'Sai Net Services' and describes its operations in Mumbai, which aligns with the target company's legal name and location. The use of the exact name and the context of the services provided strongly indicates that this is the official website of the target company.",
+  "evidence": [
+    "SAI NET Broadband is an ISP operating currently only in Mumbai",
+    "Sai Net Services's website i.e. sainetservices.co.in"
+  ],
+  "site_type": "official"
+}

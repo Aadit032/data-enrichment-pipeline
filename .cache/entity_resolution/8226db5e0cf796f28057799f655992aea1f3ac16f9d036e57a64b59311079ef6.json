@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website explicitly identifies itself as belonging to National Securities Depository Limited (NSDL) and provides a matching address in Mumbai, confirming it is the official site of the target company.",
+  "evidence": [
+    "National Securities Depository Limited (NSDL)",
+    "3rd Floor, Naman Chamber, Plot C-32, G-Block, Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra - 400 051"
+  ],
+  "site_type": "official"
+}

@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website mentions 'Kiran Drug House' and provides an address in Nashik, but it does not match the target company's address in Mumbai. The evidence suggests it is a third-party site listing the business rather than the official site of the company.",
+  "evidence": [
+    "Kiran Drug House : 093734 06000, Nashik, Maharashtra",
+    "address: 093734 06000, Nashik, Maharashtra, 422001"
+  ],
+  "site_type": "third_party"
+}

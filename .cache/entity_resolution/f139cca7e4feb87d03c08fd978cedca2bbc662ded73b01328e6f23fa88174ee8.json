@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.4,
+  "explanation": "The candidate website provides information about OXIONA ENERGY SOLUTIONS (INDIA) PRIVATE LIMITED, including the exact company name and a matching city (Mumbai) and pincode (400081). However, the address listed on the site differs from the target company's address, indicating that this is likely a third-party profile rather than the official company website.",
+  "evidence": [
+    "OXIONA ENERGY SOLUTIONS INDIA PVT. LTD.",
+    "Mumbai, Maharashtra, India",
+    "400081"
+  ],
+  "site_type": "third_party"
+}

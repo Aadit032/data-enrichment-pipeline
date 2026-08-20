@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.1,
+  "explanation": "The candidate website refers to 'Om Tech Electricals Solutions Private Limited', which is a different name from the target company 'OM ELECTROTECH SOLUTIONS PRIVATE LIMITED'. Although both are located in Pune, the name discrepancy indicates they are likely distinct entities.",
+  "evidence": [
+    "Om Tech Electricals Solutions Private Limited",
+    "Pune, Maharashtra 411002, India"
+  ],
+  "site_type": "third_party"
+}

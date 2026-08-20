@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.8,
+  "explanation": "The candidate website provides a direct link to the PAN of the target company, 'Scotbay Enterprises Private Limited', and confirms its GST registration in Maharashtra, which matches the target company's location.",
+  "evidence": [
+    "Legal Name: Scotbay Enterprises Private Limited",
+    "State: Maharashtra"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Mangalam Autobuild Private Limited, including its address and legal name. However, it is a third-party site that aggregates company information rather than being the official website of the company itself. Additionally, the address mentioned is in Aurangabad, which is different from the target company's city of Mumbai.",
+  "evidence": [
+    "Mangalam Autobuild Private Limited",
+    "28 & 30, TORNA, OPPOSITE LIFE STYLE CLUB JYOTI NAGAR AURANGABAD MH 431005 IN",
+    "CIN: U74120MH2010PTC209866"
+  ],
+  "site_type": "third_party"
+}

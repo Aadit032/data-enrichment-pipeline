@@ -1,0 +1,9 @@
+{
+  "is_match": false,
+  "confidence": 0.0,
+  "explanation": "The candidate website is LinkedIn, which is a professional networking platform and does not belong to the target company. There is no evidence linking the site to CAPRICH CONSULTANCY PRIVATE LIMITED.",
+  "evidence": [
+    "none"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.4,
+  "explanation": "The candidate website discusses a company named Niveza based in Pune, but it does not provide explicit evidence that it is the same legal entity as NIVEZA INDIA PRIVATE LIMITED. The information is presented on a third-party site (Inc42) and lacks direct confirmation of the legal name or address.",
+  "evidence": [
+    "Niveza - A Fintech Bootstrapped Company Based Out Of Pune",
+    "Founded in 2010, Niveza operates in the Fintech sector",
+    "Headquarters Pune"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.4,
+  "explanation": "The candidate website provides information about NIVEZA INDIA PRIVATE LIMITED, including its registration details and address. However, it is an independent platform (IndiaFilings) and does not operate as the official website of the company. The address provided on the candidate site has slight discrepancies compared to the target company's address, which raises doubts about the exact match.",
+  "evidence": [
+    "NIVEZA INDIA PRIVATE LIMITED",
+    "CIN U74999PN2012PTC144725",
+    "OFF NO A 203 1ST FLR TEERTH TECHNOSPACE SR NO 103 MUMBAI BANGLORE HIGHWAY NEXT TO MERCEDESE BENX SHO BANER PUNE Pune MH 411045 IN"
+  ],
+  "site_type": "third_party"
+}

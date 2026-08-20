@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website is a LinkedIn page that references 'Atulya Ventures' but does not provide direct evidence that it is the official site of ATULYA VENTURES PRIVATE LIMITED. While it mentions the company name and city, it lacks specific address details and is not operated by the company itself.",
+  "evidence": [
+    "Atulya Ventures",
+    "Mumbai"
+  ],
+  "site_type": "third_party"
+}

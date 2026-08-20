@@ -1,0 +1,10 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides detailed information about Galaxy Infonet Private Limited, including the exact legal name and address. However, it is a third-party site that aggregates company information rather than being the official website of the company itself.",
+  "evidence": [
+    "Galaxy Infonet Private Limited",
+    "Room No.3, Ahire Chawl Ambedkar Nagar, P.L.Lokhande Marg, Chembur, Mumbai, Maharashtra, 400089"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.3,
+  "explanation": "The candidate website provides information about Fincomm Solutions Private Limited but does not serve as the official site of the company. The address mentioned on the site (105, APOLLO ARCADE, R. K. SINGH MARG, ANDHERI(EAST) MUMBAI MH 400069) does not match the target company's address in Andheri East, Mumbai. Therefore, it cannot be confirmed as the same entity.",
+  "evidence": [
+    "Fincomm Solutions Private Limited",
+    "105, APOLLO ARCADE, R. K. SINGH MARG, ANDHERI(EAST) MUMBAI MH 400069",
+    "CIN: U74120MH2010PTC211383"
+  ],
+  "site_type": "third_party"
+}

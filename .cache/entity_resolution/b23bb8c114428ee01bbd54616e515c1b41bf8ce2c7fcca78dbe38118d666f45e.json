@@ -1,0 +1,11 @@
+{
+  "is_match": false,
+  "confidence": 0.1,
+  "explanation": "The candidate website refers to 'Shiva Hospitality Services Pvt. Ltd.', which is a different company from the target 'RUSHI HOSPITALITY SERVICES PRIVATE LIMITED'. There is no evidence linking the two companies, and the addresses provided do not match.",
+  "evidence": [
+    "Shiva Hospitality Services Pvt. Ltd.",
+    "Kandivali East, Mumbai",
+    "Shubh Commercial Building, No. 32, 3rd Floor, Akurli Road, Near ESI Hospital, Kandivali East, Mumbai - 400101"
+  ],
+  "site_type": "third_party"
+}

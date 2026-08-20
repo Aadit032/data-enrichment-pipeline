@@ -1,0 +1,10 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides the exact legal name 'NTH VENTURE PRIVATE LIMITED' along with corroborating address details that match the target company's address in Mumbai, including the pincode. This strong alignment indicates that the website belongs to the exact same company.",
+  "evidence": [
+    "NTH VENTURE PRIVATE LIMITED",
+    "801/802, Tulsani Chambers, Free Press Journal Marg, Mumbai, Maharashtra, 400021"
+  ],
+  "site_type": "third_party"
+}

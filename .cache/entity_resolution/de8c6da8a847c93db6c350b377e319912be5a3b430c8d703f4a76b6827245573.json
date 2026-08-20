@@ -1,0 +1,12 @@
+{
+  "is_match": true,
+  "confidence": 0.92,
+  "explanation": "The candidate page displays the exact legal name \"BLOND DESIGN PRIVATE LIMITED\" along with the full registered office address, CIN, and pincode that match the target company’s details. This confirms it refers to the same legal entity, though the site is a third‑party corporate profile platform.",
+  "evidence": [
+    "BLOND DESIGN PRIVATE LIMITED",
+    "Kitab Mahal, 3rd Floor, Plot No-192 Dadabhai Naoroji Road, Azad Maidan, Fort,Mumbai,Mumbai City,Maharashtra,400001-India",
+    "CIN: U74120MH2012PTC232444",
+    "Pincode 400001"
+  ],
+  "site_type": "third_party"
+}

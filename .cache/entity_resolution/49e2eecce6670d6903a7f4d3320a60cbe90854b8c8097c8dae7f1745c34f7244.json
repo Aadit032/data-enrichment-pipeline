@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides explicit information about H.Jasvantrai Engineering Private Limited, including the exact legal name, address, and city, which match the target company. The presence of the company's registration details and address corroborates the match.",
+  "evidence": [
+    "H.jasvantrai Engineering Private Limited",
+    "301, SAPHHIRE PLAZA, PLOT NO.20, DADABHAI ROAD, OPP. GOKALIBHAI SCHOOL, VILE PARLE-WEST, MUMBAI, 400056",
+    "CIN U74120MH2011PTC219444"
+  ],
+  "site_type": "third_party"
+}

@@ -1,0 +1,11 @@
+{
+  "is_match": true,
+  "confidence": 0.9,
+  "explanation": "The candidate website provides the exact legal name 'Artarna Multi Trading Private Limited' along with a matching address in Worli, Mumbai, which corresponds to the target company. This strong corroboration of both name and location supports a high confidence in the match.",
+  "evidence": [
+    "Artarna Multi Trading Private Limited",
+    "OFFICE NO E-403,4TH FLOOR,MAHALAXMI SRA CHS LTD PANDURANG BUDHKAR MARG,WORLI,Maharashtra,400030-India",
+    "CIN: U74110MH2011PTC215153"
+  ],
+  "site_type": "third_party"
+}

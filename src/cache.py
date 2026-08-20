@@ -27,6 +27,17 @@ def payload_key(payload: Any) -> str:
     return hashlib.sha256(f"{SCHEMA_VERSION}:{blob}".encode()).hexdigest()
 
 
+def _serializable(value: Any) -> Any:
+    """Recursively convert Pydantic models to plain JSON-serialisable data."""
+    if isinstance(value, BaseModel):
+        return _serializable(value.model_dump(mode="json"))
+    if isinstance(value, dict):
+        return {k: _serializable(v) for k, v in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_serializable(v) for v in value]
+    return value
+
+
 class JsonCache:
     """Thread-safe-ish file cache organised as ``root/<namespace>/<key>.json``."""
 
@@ -68,6 +79,6 @@ class JsonCache:
         if cached is not None:
             return model.model_validate(cached) if model else cached
         value = compute()
-        serializable = value.model_dump(mode="json") if isinstance(value, BaseModel) else value
+        serializable = _serializable(value)
         self.set(namespace, key, serializable)
         return value if model is None else value if isinstance(value, model) else model.model_validate(serializable)

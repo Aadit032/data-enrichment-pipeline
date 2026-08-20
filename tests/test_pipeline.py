@@ -54,10 +54,10 @@ class StubbedPipeline(Pipeline):
 
     def resolve_domain(self, company: Company, domain_evidence: DomainEvidence) -> EntityResolution:
         if domain_evidence.domain == "acme-real.com":
-            return EntityResolution(is_match=True, confidence=0.95, explanation="exact name + address", evidence="ACME PRIVATE LIMITED; Mumbai 400050")
+            return EntityResolution(is_match=True, confidence=0.95, explanation="exact name + address", evidence=["ACME PRIVATE LIMITED", "Mumbai 400050"])
         if domain_evidence.domain == "acme-partner.com":
-            return EntityResolution(is_match=True, confidence=0.62, explanation="similar name only", evidence="none")
-        return EntityResolution(is_match=False, confidence=0.1, explanation="unrelated", evidence="none")
+            return EntityResolution(is_match=True, confidence=0.62, explanation="similar name only", evidence=["none"])
+        return EntityResolution(is_match=False, confidence=0.1, explanation="unrelated", evidence=["none"])
 
     def extract(self, company: Company, domain_evidence: DomainEvidence, resolution: EntityResolution) -> ExtractionResult:
         return ExtractionResult(website=f"https://{domain_evidence.domain}/", business="does things", customers="everyone")
@@ -67,8 +67,8 @@ def test_select_best_match_prefers_high_confidence() -> None:
     evidence_a = make_evidence("acme-real.com")
     evidence_b = make_evidence("acme-partner.com")
     resolutions = [
-        (evidence_b, EntityResolution(is_match=True, confidence=0.62, explanation="", evidence="")),
-        (evidence_a, EntityResolution(is_match=True, confidence=0.95, explanation="", evidence="")),
+        (evidence_b, EntityResolution(is_match=True, confidence=0.62, explanation="")),
+        (evidence_a, EntityResolution(is_match=True, confidence=0.95, explanation="")),
     ]
     best = _select_best_match(resolutions, threshold=0.7)
     assert best is not None
@@ -77,7 +77,7 @@ def test_select_best_match_prefers_high_confidence() -> None:
 
 def test_select_best_match_returns_none_below_threshold() -> None:
     resolutions = [
-        (make_evidence("x.com"), EntityResolution(is_match=True, confidence=0.5, explanation="", evidence="")),
+        (make_evidence("x.com"), EntityResolution(is_match=True, confidence=0.5, explanation="")),
     ]
     assert _select_best_match(resolutions, threshold=0.7) is None
 
@@ -101,7 +101,7 @@ def test_run_batch_matches_correct_company(tmp_path: Path) -> None:
 def test_run_batch_leaves_unresolved_without_confident_match(tmp_path: Path) -> None:
     class NoMatchPipeline(StubbedPipeline):
         def resolve_domain(self, company: Company, domain_evidence: DomainEvidence) -> EntityResolution:
-            return EntityResolution(is_match=False, confidence=0.2, explanation="no", evidence="none")
+            return EntityResolution(is_match=False, confidence=0.2, explanation="no", evidence=["none"])
 
     settings = Settings(cache_dir=tmp_path / "cache2", use_playwright=False)
     settings.exa_api_key = "x"

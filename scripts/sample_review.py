@@ -74,7 +74,7 @@ def main() -> None:
                     resolution.get("confidence", ""),
                     resolution.get("is_match", ""),
                     resolution.get("explanation", ""),
-                    resolution.get("evidence", ""),
+                    "; ".join(resolution.get("evidence") or []),
                     candidates,
                     "",
                     "",

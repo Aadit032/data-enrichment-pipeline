@@ -54,7 +54,7 @@ class EntityResolution(BaseModel):
     is_match: bool
     confidence: float = Field(ge=0.0, le=1.0)
     explanation: str = ""
-    evidence: str = ""
+    evidence: list[str] = Field(default_factory=list)
 
 
 class ExtractionResult(BaseModel):

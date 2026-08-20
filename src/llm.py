@@ -37,9 +37,9 @@ without location confirmation.
 leave a company unresolved than to attach the wrong website.
 
 Respond with ONLY a JSON object with these keys:
-{"is_match": <bool>, "confidence": <float 0-1>, "explanation": <str>, "evidence": <str>}
+{"is_match": <bool>, "confidence": <float 0-1>, "explanation": <str>, "evidence": <list[str]>}
 where "evidence" is a short list of concrete strings from the candidate page \
-(e.g. exact company name, address, pincode) that establish the match, or "none".\
+(e.g. exact company name, address, pincode) that establish the match (["none"] if none).\
 """
 
 SYSTEM_EXTRACTION = """\

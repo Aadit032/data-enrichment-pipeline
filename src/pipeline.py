@@ -264,7 +264,7 @@ def _entity_resolution_prompt(payload: dict, prompt_text_chars: int) -> str:
 CANDIDATE WEBSITE EVIDENCE
 {json.dumps(evidence, indent=2, ensure_ascii=False)}
 
-Return ONLY JSON: {{"is_match": <bool>, "confidence": <float 0-1>, "explanation": <str>, "evidence": <str>}}"""
+Return ONLY JSON: {{"is_match": <bool>, "confidence": <float 0-1>, "explanation": <str>, "evidence": <list[str]>}}"""
 
 
 def _extraction_prompt(payload: dict, prompt_text_chars: int) -> str:

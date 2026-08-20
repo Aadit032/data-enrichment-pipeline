@@ -27,8 +27,10 @@ class Settings(BaseSettings):
     openrouter_api_key: str = ""
 
     # LLM
-    openrouter_model: str = "openai/gpt-4o-mini"
-    openrouter_base_url: str = "https://openrouter.ai/api/v1"
+    # openrouter_model: str = "openai/gpt-4o-mini"
+    # openrouter_base_url: str = "https://openrouter.ai/api/v1"
+    openrouter_base_url: str = "https://api.groq.com/openai/v1"
+    openrouter_model: str = "openai/gpt-oss-20b"
 
     # Candidate discovery
     exa_num_results: int = 5
@@ -38,6 +40,7 @@ class Settings(BaseSettings):
     request_timeout: float = 25.0
     llm_timeout: float = 90.0
     max_retries: int = 3
+    llm_call_delay: float = 5.0
 
     # Matching
     entity_match_threshold: float = 0.7

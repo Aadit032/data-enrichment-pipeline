@@ -59,11 +59,15 @@ Given a target company and evidence from its VERIFIED official website, extract:
 - business: 1-3 sentence plain-English description of what the company does \
 (products/services), based only on the evidence.
 - customers: 1-2 sentence description of who its customers are (industries, \
-segments, client types). If the evidence explicitly mentions customers, use it. \
-If the evidence does not mention customers, make a very calculated guess inferred \
-from the company's business/industry (who would typically buy its products/services), \
-and phrase it clearly as an inference (e.g. "Likely served industries include ..."). \
-Only use null if even the industry cannot be inferred.
+segments, client types). FIRST carefully scan the evidence text for any explicit \
+customer information — phrases like "serves", "clients", "customers", "targets", \
+"for", "used by", "we work with", "supports", or named industries/segments. If \
+the evidence mentions customers, describe exactly what it says and do NOT guess. \
+ONLY when the evidence contains no customer information whatsoever, make a very \
+calculated guess inferred from the company's business/industry (who would \
+typically buy its products/services) and phrase it clearly as an inference \
+(e.g. "Likely served industries include ..."). Use null only if even the \
+industry cannot be inferred.
 
 If the evidence does not support the website or business fields, set them to null. \
 Do not fabricate specific facts. For customers, a reasoned inference is expected.
@@ -94,6 +98,8 @@ class LLMClient:
         attempts = retries or self.settings.max_retries
         last_error: Exception | None = None
         for attempt in range(1, attempts + 1):
+            if self.settings.llm_call_delay > 0:
+                time.sleep(self.settings.llm_call_delay)
             try:
                 response = self._client.chat.completions.create(
                     model=self.model,

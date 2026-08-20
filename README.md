@@ -244,6 +244,7 @@ cp .env.example .env
 | `REQUEST_TIMEOUT` | `25` | HTTP timeout (seconds). |
 | `LLM_TIMEOUT` | `90` | LLM request timeout (seconds). |
 | `MAX_RETRIES` | `3` | Retry attempts for transient failures. |
+| `LLM_CALL_DELAY` | `5` | Pause (seconds) between LLM API calls to avoid rate limiting. |
 | `CACHE_DIR` | `.cache` | Local JSON cache directory. |
 | `MAX_PAGE_TEXT_CHARS` | `6000` | Max page-text chars kept as evidence. |
 | `PROMPT_TEXT_CHARS` | `3500` | Max page-text chars shown to the LLM. |

@@ -58,19 +58,19 @@ Given a target company and evidence from its VERIFIED official website, extract:
 - website: the official website URL of the company (full URL from the evidence).
 - business: 1-3 sentence plain-English description of what the company does \
 (products/services), based only on the evidence.
-- customers: 1-2 sentence description of who its customers are (industries, \
-segments, client types). FIRST carefully scan the evidence text for any explicit \
-customer information — phrases like "serves", "clients", "customers", "targets", \
-"for", "used by", "we work with", "supports", or named industries/segments. If \
-the evidence mentions customers, describe exactly what it says and do NOT guess. \
-ONLY when the evidence contains no customer information whatsoever, make a very \
-calculated guess inferred from the company's business/industry (who would \
-typically buy its products/services) and phrase it clearly as an inference \
-(e.g. "Likely served industries include ..."). Use null only if even the \
-industry cannot be inferred.
+- customers: REQUIRED — a 1-2 sentence description of who its customers are \
+(industries, segments, client types). FIRST carefully scan the evidence text for \
+any explicit customer information — phrases like "serves", "clients", "customers", \
+"targets", "for", "used by", "we work with", "supports", or named \
+industries/segments — and describe exactly what it says. ONLY when the evidence \
+contains no customer information whatsoever, make a calculated inference from the \
+company's business/industry (who would typically buy its products/services) and \
+phrase it clearly as an inference (e.g. "Likely served industries include ..."). \
+customers must ALWAYS be a non-empty string; use null only when even the \
+business/industry is unknown (i.e. business is null).
 
 If the evidence does not support the website or business fields, set them to null. \
-Do not fabricate specific facts. For customers, a reasoned inference is expected.
+Do not fabricate specific facts.
 Respond with ONLY a JSON object:
 {"website": <str|null>, "business": <str|null>, "customers": <str|null>}\
 """

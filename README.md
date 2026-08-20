@@ -1,233 +1,141 @@
 # Company Data-Enrichment Pipeline
 
-A production-quality Python pipeline that enriches a company CSV — originally containing
-**Company Name**, **City**, and **Address** — by appending three new columns:
+A Python pipeline that takes a CSV of companies (**name**, **city**, **address**) and enriches
+each row with three new fields:
 
 - **Official company website**
 - **What the business does**
 - **Who its customers are**
 
-The pipeline discovers candidate websites with [Exa](https://exa.ai), verifies each candidate
-belongs to the **exact** legal entity using an LLM (via [OpenRouter](https://openrouter.ai))
-entity-resolution step, and only then extracts business/customer information. Everything
-expensive is cached locally, so reruns are cheap and safe to interrupt.
+It discovers candidate sites with [Exa](https://exa.ai), verifies each one is the **exact**
+legal entity using an LLM, and only then extracts business/customer info. Everything expensive
+is cached locally, so reruns are cheap and resumable.
 
-Built with Python + [`uv`](https://docs.astral.sh/uv/). No heavy frameworks — just
-`httpx`, `beautifulsoup4`, `pydantic`, `openai` (OpenRouter client), and Playwright (optional
-fallback).
+Built with Python + [`uv`](https://docs.astral.sh/uv/) — no heavy frameworks, just `httpx`,
+`beautifulsoup4`, `pydantic`, `openai`, and optional Playwright.
 
 ---
 
-## Solution overview
+## How it works
 
-| Concern | Approach |
+| Step | What happens |
 | --- | --- |
-| Candidate discovery | 3 query variations per company (name + city, name + locality from address, name + "official website"), run on the Exa search API (5 results each), aggregated and deduplicated by **domain**. |
-| Evidence retrieval | Prefer Exa-provided page text; otherwise fetch the HTML directly over HTTPS; if a page is JS-rendered or too thin, re-render it with Playwright (headless Chromium). Evidence = title, meta description, JSON-LD, address/pincode snippets, and cleaned page text. |
-| Entity resolution | LLM is given the target company (name/city/address) plus each candidate domain's evidence and must answer `is_match`, `confidence (0–1)`, `explanation`, `evidence`. Matches below a confidence threshold are rejected — unresolved companies are left blank rather than guessed. |
-| Extraction | For the highest-confidence valid match, the LLM extracts the official website, a business description, and a customer description as structured JSON. |
-| Caching | Every API call (Exa searches, page fetches, entity resolution, extraction) is keyed by a content hash of its inputs and stored as JSON under `.cache/`. Reruns skip completed work → cheap, resumable, reproducible. |
-| Output | Two CSVs: an enriched CSV with the three columns appended (official website left empty when not found) and a reference CSV with the found third-party URLs plus a FOUND / NOT_FOUND / AMBIGUOUS status. Original columns/data are preserved. |
+| **1. Candidate discovery** | 3 Exa queries per company (name+city, name+locality, name+`official website`), 5 results each, aggregated and deduplicated **by domain**. |
+| **2. Evidence retrieval** | Fetch each candidate page (Exa text → direct HTTP → Playwright fallback for JS-heavy sites) and reduce it to title, description, JSON-LD, address/pincode snippets and cleaned text. |
+| **3. Entity resolution (LLM)** | LLM decides if a candidate is the **exact legal entity** (rejecting namesakes, subsidiaries, aggregators) and returns `is_match`, `confidence`, `site_type` (`official` / `third_party` / `ambiguous`). Only matches above `ENTITY_MATCH_THRESHOLD` (0.7) are accepted as the official site. |
+| **4. Extraction (LLM)** | Extract a business description and a customer description as structured JSON from the matched site — or, when nothing matched, from the single best available page (even a third-party profile). The website URL is only ever kept when the site was confirmed official. |
 
-## End-to-end pipeline architecture
+Every expensive call (Exa searches, page fetches, LLM verdicts) is cached under `.cache/`
+keyed by a hash of its inputs — reruns skip completed work.
 
-```
-input.csv ──► csvio.read_companies ──► [Company(name, city, address)]
-                                          │
-                                          ▼
-                          ┌─────────────────────────────────────────────┐
-                          │  Pipeline.enrich_company (per company,      │
-                          │  run sequentially)                          │
-                          │                                             │
-                          │  1. build_queries ──► 3 variations          │
-                          │  2. ExaClient.search × 3 (cached)           │
-                          │  3. dedupe_candidates (by domain)           │
-                          │  4. Fetcher.evidence_for_domain (cached)    │
-                          │  5. LLM entity resolution (cached)          │
-                          │  6. select best match ≥ threshold           │
-                          │  7. LLM extraction (cached)                 │
-                          └─────────────────────────────────────────────┘
-                                          │
-                                          ▼
-                     csvio.write_enriched ──► output.csv (columns appended)
-```
+## Output files
 
-### Module map
+The run produces **two CSVs**:
 
-| Module | Responsibility |
+| File | Contents |
 | --- | --- |
-| `src/main.py` | CLI (`uv run python -m src.main input.csv`), config wiring, orchestration, summary. |
-| `src/config.py` | `Settings` (pydantic-settings) — reads environment / `.env`. |
-| `src/models.py` | Pydantic models: `Company`, `ExaSearchResult`, `PageEvidence`, `EntityResolution`, `ExtractionResult`, `CompanyResult`. |
-| `src/queries.py` | Query generation (`build_queries`), domain normalization, candidate dedup. |
-| `src/exa_client.py` | Exa REST API client. |
-| `src/fetch.py` | HTTP fetching, Playwright fallback, HTML → `PageEvidence` extraction (title/meta/JSON-LD/address/pincode/text). |
-| `src/llm.py` | OpenRouter client, robust JSON parsing, retries. |
-| `src/pipeline.py` | Per-company orchestration + batch runner (`run_batch`). |
-| `src/cache.py` | `JsonCache` — content-hashed JSON cache with `get_or_compute`. |
-| `src/csvio.py` | CSV reading/writing; original columns preserved. |
-| `src/logging_util.py` | Logging setup (stderr + file). |
+| `enriched.csv` | Original rows + the 3 new columns. `Official company website` is **empty unless** a candidate was confirmed as the company's own official site. |
+| `references.csv` | Original rows + `Status` (`FOUND` / `NOT_FOUND` / `AMBIGUOUS`) + `Found URLs` — the third-party pages that describe the company (tracxn, tofler, sensibook, …). |
 
-## Candidate discovery and deduplication
+> **Why two files?** Most registered companies have no discoverable official website — the web
+> only surfaces directory/aggregator pages. Rather than write a guess into the official-website
+> column, that column is kept **null**, and the directory URLs are preserved in `references.csv`
+> for manual review.
 
-For each company the pipeline builds **3 query variations**:
+### Why some "Who its customers are" cells are empty
 
-1. `"<base name>" <city>` — the legal name minus boilerplate suffixes (PRIVATE LIMITED, PVT LTD,
-   LLP, …) plus the city.
-2. `"<base name>" <locality>` — locality/landmark signalled by the address (the last non-boilerplate
-   capitalized word, e.g. `BANDRA` from `FLAT 1, HILL ROAD, BANDRA (WEST), MUMBAI`).
-3. `"<base name>" official website` — catches sites whose name differs from the search phrasing.
+The customer field is the hardest column to fill and stays empty in three situations:
 
-Each query returns up to 5 results from Exa. Results are aggregated and deduplicated **by domain**
-(`www.` stripped, lowercase), keeping the highest-scoring result per domain. Only the top
-`MAX_CANDIDATES` (default 5) domains are pursued. This keeps searches cheap while ensuring
-namesake companies in other cities — which usually appear as *separate* domains — stay distinct
-candidates for the entity-resolution step.
+1. **No web presence found.** If search returns no pages at all for the company (dormant,
+   shell or brand-new firms), there is no evidence to extract from.
+2. **Only registration metadata available.** The only sources surfaced are directory/aggregator
+   pages (thecompanycheck.com, mycorporateinfo.com, tofler.in, tracxn.com, …) that list the
+   legal name, address, directors and incorporation date — but never what the company does or
+   who it serves. The LLM is instructed never to fabricate facts, so the cell is left empty
+   rather than guessed. A fallback extraction still runs against the best available page
+   (official or third-party), but if the content genuinely contains no business/customer
+   information, both `business` and `customers` come back null.
+3. **Transient API failures.** Rate limits (HTTP 429) can abort an LLM call; re-running the
+   same command resumes from the cache and fills these cells.
 
-## Website retrieval and Playwright fallback
+Customers are only inferred when the company's business is itself known — the LLM never guesses
+a customer profile for an unknown business — which is why `customers` is almost always empty
+whenever `business` is empty too.
 
-For each candidate domain, evidence is gathered from:
+## LLM entity-resolution method
 
-1. The Exa result URL — Exa's own content is used directly when it is long enough.
-2. The domain homepage, if the result URL is a subpage.
-3. Common informative pages (`/about`, `/contact`, …) when the above are too thin.
+Each candidate domain is sent to the LLM along with the target company (name/city/address) and
+its page evidence. The system prompt requires a match to the **exact legal entity** and rules on
+namesakes/portals/franchisees. Confidence bands:
 
-Per URL the retrieval ladder is:
-
-```
-Exa text (if ≥ MIN_GOOD_TEXT_CHARS)        ── preferred
-   │
-   ▼
-HTTP fetch + parse (httpx, redirects, UA)  ── normal path
-   │  (page too thin / empty text → suspicious of JS rendering)
-   ▼
-Playwright headless Chromium render        ── fallback for JS-rendered sites
-```
-
-`extract_evidence()` then builds a `PageEvidence` object from the HTML:
-
-- page `<title>` and meta/OG description
-- all JSON-LD blocks, flattened and summarized (name, url, description, address fields)
-- up to 5 address snippets (120 chars before / 80 after any 6-digit pincode or a mention of the target city)
-- the first 6-digit pincode found
-- cleaned page text (whitespace collapsed, truncated to `MAX_PAGE_TEXT_CHARS`)
-
-## Entity-resolution methodology and confidence scoring
-
-Each candidate domain is sent to the LLM (OpenRouter) along with the **target company**:
-
-```
-TARGET COMPANY
-- Legal name: NATIONAL SECURITIES DEPOSITORY LIMITED
-- City: Mumbai
-- Address: 301, Naman Chambers, BKC, Mumbai 400051
-
-CANDIDATE WEBSITE EVIDENCE
-[{url, title, description, json_ld, pincode, address_snippets, city_mentions, text}]
-```
-
-The LLM must return strict JSON:
-
-```json
-{"is_match": true, "confidence": 0.95, "explanation": "...", "evidence": "National Securities Depository Limited; BKC Mumbai 400051"}
-```
-
-The prompt is explicit that a match requires the **exact legal entity** and that namesake
-companies, subsidiaries, franchisees, and aggregator pages must be rejected. Confidence is scored
-as:
-
-- **0.8–1.0** — exact name plus corroborating city/address/pincode, or an unmistakable exact-name match.
-- **0.5–0.7** — plausible but only partial corroboration.
+- **0.8–1.0** — exact name + corroborating city/address/pincode.
+- **0.5–0.7** — plausible but partial corroboration.
 - **< 0.5** — namesake / competitor / portal / unrelated.
 
-Selection logic (`_select_best_match`): among candidates with `is_match == true`, pick the one with
-the **highest confidence**; if none reaches `ENTITY_MATCH_THRESHOLD` (default **0.7**), the company
-is left **unresolved** (blank cells) rather than hallucinated. All entity-resolution verdicts are
-cached, so re-tuning the threshold later costs nothing.
+`site_type` marks whether the site is *operated by* the company (`official`) or merely *describes*
+it (`third_party` / `ambiguous`); that drives the `FOUND` / `NOT_FOUND` / `AMBIGUOUS` status.
 
-## Extraction of enrichment fields
+### Model choice
 
-For the selected (verified) domain the LLM extracts:
+This dataset was processed with two models:
 
-```json
-{"website": "https://www.nsdl.co.in", "business": "...", "customers": "..."}
-```
+- **First half** — `openai/gpt-4o-mini` via **OpenRouter**.
+- **Second half (current default)** — `openai/gpt-oss-20b` via the **Groq API**
+  (`https://api.groq.com/openai/v1`), switched after the OpenRouter credits ran out.
 
-- `website` — full official URL from the verified evidence.
-- `business` — 1–3 sentence description of what the company does.
-- `customers` — who its customers are (segments/industries), only if the site claims it.
+The pipeline is API-agnostic: any OpenAI-compatible endpoint works via
+`OPENROUTER_BASE_URL` + `OPENROUTER_MODEL`.
 
-Fields the site doesn't support are `null` and become empty cells in the CSV.
+## Setup and reproduction (from scratch)
 
-## Caching strategy
+### 0. Prerequisites
 
-`JsonCache` (in `src/cache.py`) stores JSON files under `CACHE_DIR` (default `.cache/`), one
-namespace per stage:
+- **Python 3.10+** — <https://www.python.org/downloads/>
+- **[`uv`](https://docs.astral.sh/uv/)** — fast Python package manager:
 
-| Namespace | Cache key (SHA-256 of) | Cached value |
-| --- | --- | --- |
-| `exa_search` | query + num_results | Exa results |
-| `web` | URL | raw HTML + fetch method |
-| `entity_resolution` | company (name/city/address) + domain + evidence snapshot | LLM verdict |
-| `extraction` | company + verified domain evidence + explanation | extracted fields |
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
 
-Because keys are **content hashes of inputs**, a cached result is never reused for different input
-(a different company, a different page, or a different evidence snapshot produce a different key).
-Reruns short-circuit to the cache, which makes the pipeline:
+- **Git** — clone the repo:
 
-- **Cheap** — the second run of the same dataset performs ~zero network/LLM calls.
-- **Resumable** — if the process is killed mid-run, rerunning it picks up exactly where it left off
-  and only processes the remaining companies.
-- **Deterministic** — the same inputs produce the same cached outputs.
+  ```bash
+  git clone <repo-url> && cd monter
+  ```
 
-## Accuracy validation
+### 1. Get free API keys
 
-The pipeline was validated by a **sampling + manual-review** procedure:
+**Exa** — free tier gives **$20 on signup + $10 every month**, no card required.
+Get a key at <https://dashboard.exa.ai/api-keys>.
 
-1. **Run with a detailed dump.** Run
-   `uv run python -m src.main input.csv --dump-json results.json`.
-   `results.json` contains, per company: status, candidates (each with page evidence), the chosen
-   resolution (confidence, explanation, evidence strings) and the extracted fields.
-2. **Sample for review.** Generate a review sheet for a random 10% of companies:
-   `uv run python scripts/sample_review.py results.json --sample 0.1 -o review.csv`
-   The sheet lists the original company data, chosen website, business/customer descriptions,
-   the LLM's confidence + explanation + supporting evidence, and the candidate domains, plus
-   empty `reviewer_ok` / `notes` columns to fill in.
-3. **Review each row manually.** For each row, open the website and confirm: (a) it is the exact
-   legal entity (name + address/city on the site match), (b) the business description matches,
-   (c) the customer description is reasonable. Mark `reviewer_ok = yes/no`.
-4. **Measure and adjust.** Compute precision (fraction of `yes`) and the unresolved rate. If a
-   mis-match passes the threshold, either raise `ENTITY_MATCH_THRESHOLD` or tighten the
-   entity-resolution prompt (cached verdicts make this iteration free); if too many are unresolved,
-   increase `MAX_CANDIDATES` or `EXA_NUM_RESULTS`.
+**LLM** — pick one of:
 
-In practice this identified the dominant failure mode: **small firms without any web presence**
-(very common in the sample data — many registered companies are dormant). These are correctly left
-unresolved. The remaining risk is namesake companies, which the entity-resolution prompt plus the
-threshold are designed to reject.
+- **OpenRouter** — free to join and includes free models (`openai/gpt-4o-mini`,
+  `openrouter/free`). New accounts get a small free allowance; free models are capped at
+  ~50 requests/day until you add ≥ $10 in credits. Keys at <https://openrouter.ai/keys>.
+- **Groq (recommended)** — fast free tier with generous daily limits, no card needed.
+  Keys at <https://console.groq.com/keys>. Set
+  `OPENROUTER_BASE_URL=https://api.groq.com/openai/v1` and a model such as
+  `openai/gpt-oss-20b`.
 
-## Setup and reproduction
-
-### Prerequisites
-
-- Python 3.10+ and [`uv`](https://docs.astral.sh/uv/)
-- An [Exa API key](https://dashboard.exa.ai/api-keys)
-- An [OpenRouter API key](https://openrouter.ai/keys)
-
-### Install
+### 2. Install dependencies
 
 ```bash
 uv sync                        # create the venv and install dependencies
-uv run playwright install chromium   # only needed for the JS-rendering fallback
+uv run playwright install chromium   # only for the JS-rendering fallback
 ```
 
-### Configure
+### 3. Configure
 
 ```bash
 cp .env.example .env
-# edit .env and fill in:
-#   EXA_API_KEY=...
-#   OPENROUTER_API_KEY=...
+# set EXA_API_KEY and OPENROUTER_API_KEY
+```
+
+### 4. Run
+
+```bash
+uv run python -m src.main input.csv --output enriched.csv --ref-output references.csv
 ```
 
 ## Environment variables
@@ -235,21 +143,21 @@ cp .env.example .env
 | Variable | Default | Description |
 | --- | --- | --- |
 | `EXA_API_KEY` | *(required)* | Exa web-search API key. |
-| `OPENROUTER_API_KEY` | *(required)* | OpenRouter API key. |
-| `OPENROUTER_MODEL` | `openai/gpt-4o-mini` | LLM model used for resolution & extraction. |
-| `OPENROUTER_BASE_URL` | `https://openrouter.ai/api/v1` | OpenRouter-compatible endpoint. |
+| `OPENROUTER_API_KEY` | *(required)* | LLM API key (OpenRouter or Groq). |
+| `OPENROUTER_MODEL` | `openai/gpt-oss-20b` | LLM model for resolution & extraction. |
+| `OPENROUTER_BASE_URL` | `https://api.groq.com/openai/v1` | OpenAI-compatible endpoint. |
 | `EXA_NUM_RESULTS` | `5` | Results per query. |
-| `MAX_CANDIDATES` | `5` | Max candidate domains considered per company. |
-| `ENTITY_MATCH_THRESHOLD` | `0.7` | Minimum confidence to accept a match. |
+| `MAX_CANDIDATES` | `5` | Max candidate domains per company. |
+| `ENTITY_MATCH_THRESHOLD` | `0.7` | Min confidence to accept a match. |
 | `REQUEST_TIMEOUT` | `25` | HTTP timeout (seconds). |
 | `LLM_TIMEOUT` | `90` | LLM request timeout (seconds). |
-| `MAX_RETRIES` | `3` | Retry attempts for transient failures. |
-| `LLM_CALL_DELAY` | `5` | Pause (seconds) between LLM API calls to avoid rate limiting. |
-| `CACHE_DIR` | `.cache` | Local JSON cache directory. |
-| `MAX_PAGE_TEXT_CHARS` | `6000` | Max page-text chars kept as evidence. |
-| `PROMPT_TEXT_CHARS` | `3500` | Max page-text chars shown to the LLM. |
-| `MIN_GOOD_TEXT_CHARS` | `300` | Text length below which a page is "thin". |
-| `USE_PLAYWRIGHT` | `true` | Enable JS-rendering fallback. |
+| `MAX_RETRIES` | `3` | Retries for transient failures. |
+| `LLM_CALL_DELAY` | `5` | Pause between LLM calls (rate limiting). |
+| `CACHE_DIR` | `.cache` | Local JSON cache. |
+| `MAX_PAGE_TEXT_CHARS` | `6000` | Max page text kept as evidence. |
+| `PROMPT_TEXT_CHARS` | `3500` | Max page text shown to the LLM. |
+| `MIN_GOOD_TEXT_CHARS` | `300` | Text below this is "thin" (triggers fallback). |
+| `USE_PLAYWRIGHT` | `true` | Enable the JS-rendering fallback. |
 
 ## Usage
 
@@ -257,10 +165,7 @@ cp .env.example .env
 # Enrich in place (appends the 3 columns to input.csv)
 uv run python -m src.main input.csv
 
-# Write to a new file instead of modifying the input
-uv run python -m src.main input.csv --output enriched.csv
-
-# Reference CSV with the third-party URLs found + FOUND/NOT_FOUND/AMBIGUOUS status
+# Write to a new file + a reference CSV
 uv run python -m src.main input.csv --output enriched.csv --ref-output references.csv
 
 # Test run on the first 5 companies
@@ -275,62 +180,62 @@ uv run python -m src.main input.csv --dry-run
 # Tune the match threshold
 uv run python -m src.main input.csv --threshold 0.75
 
-# Generate a manual-review sample
+# Generate a manual-review sample (10%)
 uv run python scripts/sample_review.py results.json --sample 0.1 -o review.csv
 ```
 
-The run produces **two CSVs**:
-
-- **`--output` (enriched CSV)** — the input CSV with three columns appended (`Official company
-  website`, `What the business does`, `Who its customers are`). The website is filled **only** when a
-  candidate was confirmed as the company's own official site; otherwise it is left empty.
-- **`--ref-output` (reference CSV)** — the input rows plus a `Status` column
-  (`FOUND` / `NOT_FOUND` / `AMBIGUOUS`) and a `Found URLs` column listing the URLs the pipeline
-  discovered for the company (e.g. aggregator pages such as tracxn.com, sensibook.com,
-  addressadda.com). Use this for manual review when the official site could not be confirmed.
-
-During entity resolution the LLM classifies each matched site as `official` (owned by the company),
-`third_party` (a directory/aggregator/portal that merely describes it) or `ambiguous`; that drives the
-`Status` value above.
-
 ### Resume after interruption
 
-Kill the process at any time. Rerunning the exact same command skips every company (or step) whose
-results are already cached and only does the remaining work. There is no partial-write risk: the
-output CSV is written once, after processing completes.
+Kill the process any time. Rerunning the same command skips everything already cached and only
+does the remaining work. Output CSVs are written once, after processing completes.
+
+## Validation
+
+1. Run with `--dump-json results.json`.
+2. `uv run python scripts/sample_review.py results.json --sample 0.1 -o review.csv`.
+3. Manually check each sampled row: is the site the exact entity? does the business/customer
+   text match? mark `reviewer_ok`.
+4. If a wrong match passes, raise `ENTITY_MATCH_THRESHOLD` or tighten the prompt (cached verdicts
+   make this free). If too many are unresolved, raise `MAX_CANDIDATES` / `EXA_NUM_RESULTS`.
+
+The dominant failure mode in practice: **small/dormant firms with no web presence**, or firms
+whose only trace is registry/aggregator metadata — such rows keep empty business/customer cells
+(see "Why some cells are empty" above) but never a guessed website.
+
+## AI tools usage
+
+This project was built with AI assistance:
+
+- **ChatGPT** — used to talk through and design the overall architecture plan (Exa candidate
+  discovery, evidence retrieval with Playwright fallback, caching, LLM entity resolution and
+  extraction), captured in `spec.md`.
+- **opencode** — used to write and iterate on the code (`src/`, `scripts/`) and the
+  documentation (this README, `spec.md`), including fixing errors.
+- **LLM decision methods** — entity recognition uses the exact-entity prompt + confidence bands
+  above (`site_type` official/third_party/ambiguous); extraction uses a prompt that describes
+  the business from evidence and infers customers only when the site lacks explicit customer
+  info.
+- **Model change** — the first half of the dataset was processed with `openai/gpt-4o-mini` on
+  OpenRouter; after the OpenRouter credits ran out, processing switched to `openai/gpt-oss-20b`
+  on the free Groq API, which is the current default.
 
 ## Development
 
 ```bash
-uv run pytest        # tests
+uv run pytest              # tests
 uv run ruff check src tests scripts
 ```
 
-## AI tools usage
+## Limitations
 
-This project was built with the assistance of AI tools:
-
-- **ChatGPT** — used for research and to come up with the overall architecture plan for how to
-  implement the pipeline (candidate discovery via Exa, evidence retrieval with Playwright fallback,
-  caching strategy, LLM entity resolution, and extraction), which is reflected in `spec.md` and this
-  README.
-- **opencode** — used for writing and iterating on the code (all modules under `src/`) and the
-  documentation (this README, `spec.md`, and module docstrings), including reviewing and fixing
-  errors.
-
-## Limitations and failure cases
-
-- **Companies with no web presence** (dormant/small registered entities) cannot be enriched and are
-  left unresolved — this is intentional (precision over recall).
-- **Namesake companies** in different cities are rejected by entity resolution, but a very similar
-  name *in the same city* can occasionally be accepted; the confidence threshold is the dial to
-  trade precision vs. coverage.
-- **JS-rendered sites** need Playwright + a Chromium install; without it such pages may yield thin
-  evidence and be rejected.
-- **Paywalled / bot-blocked sites** may fail to fetch (captchas, 403s); those candidates are skipped.
-- **LLM model choice** affects extraction quality and JSON reliability; `MAX_RETRIES` + robust JSON
-  parsing mitigate failures, and the default `openai/gpt-4o-mini` is a good balance of cost/quality.
-- **Query language**: the sample data is Indian-English addresses; locality extraction is tuned for
-  that format and is heuristic.
-- **Rate limits**: `MAX_RETRIES` provides basic backpressure; very large datasets
-  should run in batches (`--limit`) to stay within API quotas.
+- Companies with **no web presence**, or only registry/aggregator metadata, keep empty
+  business/customer cells (never guessed); a best-effort extraction runs from the strongest
+  available page but yields nothing if the content has no business/customer info.
+- **Namesake companies** in the same city are the main remaining risk; `ENTITY_MATCH_THRESHOLD`
+  is the dial.
+- **JS-heavy / paywalled / bot-blocked** sites may yield thin evidence; Playwright + Chromium
+  helps but captchas/403s are skipped.
+- **LLM choice** affects extraction quality; `gpt-oss-20b` on Groq is the current default.
+- Query/locality parsing is **tuned for Indian-English addresses** and is heuristic.
+- **Rate limits**: `MAX_RETRIES` + `LLM_CALL_DELAY` provide backpressure; large datasets should
+  run in batches (`--limit`).

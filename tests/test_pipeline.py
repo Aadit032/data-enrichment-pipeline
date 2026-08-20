@@ -59,7 +59,7 @@ class StubbedPipeline(Pipeline):
             return EntityResolution(is_match=True, confidence=0.62, explanation="similar name only", evidence=["none"], site_type="third_party")
         return EntityResolution(is_match=False, confidence=0.1, explanation="unrelated", evidence=["none"], site_type="third_party")
 
-    def extract(self, company: Company, domain_evidence: DomainEvidence, resolution: EntityResolution) -> ExtractionResult:
+    def extract(self, company: Company, domain_evidence: DomainEvidence, resolution: EntityResolution, best_effort: bool = False) -> ExtractionResult:
         return ExtractionResult(website=f"https://{domain_evidence.domain}/", business="does things", customers="everyone")
 
 
@@ -115,10 +115,18 @@ def test_run_batch_matches_correct_company(tmp_path: Path) -> None:
     assert result.reference_urls  # candidate pages were collected
 
 
-def test_run_batch_leaves_unresolved_without_confident_match(tmp_path: Path) -> None:
+def test_no_match_still_gets_best_effort_reference_extraction(tmp_path: Path) -> None:
     class NoMatchPipeline(StubbedPipeline):
+        def __init__(self, settings: Settings, cache: JsonCache) -> None:
+            super().__init__(settings, cache)
+            self.extract_kwargs: list[tuple[str, bool]] = []
+
         def resolve_domain(self, company: Company, domain_evidence: DomainEvidence) -> EntityResolution:
             return EntityResolution(is_match=False, confidence=0.2, explanation="no", evidence=["none"])
+
+        def extract(self, company: Company, domain_evidence: DomainEvidence, resolution: EntityResolution, best_effort: bool = False) -> ExtractionResult:
+            self.extract_kwargs.append((domain_evidence.domain, best_effort))
+            return ExtractionResult(website=f"https://{domain_evidence.domain}/", business="does things", customers="everyone")
 
     settings = Settings(cache_dir=tmp_path / "cache2", use_playwright=False)
     settings.exa_api_key = "x"
@@ -126,5 +134,28 @@ def test_run_batch_leaves_unresolved_without_confident_match(tmp_path: Path) -> 
     pipeline = NoMatchPipeline(settings, JsonCache(settings.cache_dir))
 
     result = pipeline.enrich_company(make_company())
-    assert result.status == "unresolved"
-    assert result.extraction is None
+    assert result.status == "reference_only"
+    assert result.site_status == "NOT_FOUND"
+    assert result.matched_url is None
+    assert result.extraction is not None
+    assert result.extraction.customers == "everyone"
+    assert pipeline.extract_kwargs and pipeline.extract_kwargs[0][1] is True
+
+
+def test_unresolved_below_threshold_gets_reference_only_extraction(tmp_path: Path) -> None:
+    class LowConfidencePipeline(StubbedPipeline):
+        def resolve_domain(self, company: Company, domain_evidence: DomainEvidence) -> EntityResolution:
+            if domain_evidence.domain == "acme-partner.com":
+                return EntityResolution(is_match=True, confidence=0.62, explanation="similar name", evidence=["none"], site_type="third_party")
+            return EntityResolution(is_match=False, confidence=0.1, explanation="unrelated", evidence=["none"])
+
+    settings = Settings(cache_dir=tmp_path / "cache3", use_playwright=False)
+    settings.exa_api_key = "x"
+    settings.openrouter_api_key = "y"
+    pipeline = LowConfidencePipeline(settings, JsonCache(settings.cache_dir))
+
+    result = pipeline.enrich_company(make_company())
+    assert result.status == "reference_only"
+    assert result.site_status == "NOT_FOUND"
+    assert result.extraction is not None
+    assert result.extraction.business == "does things"

@@ -85,8 +85,9 @@ def main(argv: list[str] | None = None) -> int:
         cache = JsonCache(settings.cache_dir)
         results = run_batch(settings, cache, companies)
         logger.info(
-            "done: %d matched, %d unresolved, %d errors",
+            "done: %d matched, %d reference-only, %d unresolved, %d errors",
             sum(r.status == "matched" for r in results),
+            sum(r.status == "reference_only" for r in results),
             sum(r.status == "unresolved" for r in results),
             sum(r.status == "error" for r in results),
         )

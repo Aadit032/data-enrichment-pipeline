@@ -108,6 +108,51 @@ class Pipeline:
             model=EntityResolution,
         )
 
+    def _fallback_extract(
+        self,
+        company: Company,
+        result: CompanyResult,
+        resolutions: list[tuple[DomainEvidence, EntityResolution]],
+    ) -> None:
+        """Fill business/customers from the best available evidence when no official site matched.
+
+        Two tiers:
+        1. A candidate judged to be the same legal entity but below the confidence
+           threshold (`is_match` true).
+        2. Otherwise, the single highest-confidence candidate — even a third-party
+           reference page — so business/customers are still populated from real
+           content instead of being left blank.
+
+        The official-website column stays empty (site_status forced NOT_FOUND) in
+        both cases because the source is not the company's own site.
+        """
+        if not resolutions:
+            return
+        matches = [t for t in resolutions if t[1].is_match]
+        if matches:
+            domain_evidence, resolution = max(matches, key=lambda t: t[1].confidence)
+        else:
+            domain_evidence, resolution = max(resolutions, key=lambda t: t[1].confidence)
+        best_effort = not resolution.is_match
+        try:
+            result.extraction = self.extract(
+                company, domain_evidence, resolution, best_effort=best_effort
+            )
+            result.resolution = resolution
+            result.matched_url = None
+            result.site_status = "NOT_FOUND"
+            result.status = "reference_only"
+            logger.info(
+                "fallback extraction for %s from %s (best_effort=%s, confidence=%.2f)",
+                company.name,
+                domain_evidence.domain,
+                best_effort,
+                resolution.confidence,
+            )
+        except Exception as exc:  # noqa: BLE001
+            result.error = str(exc)
+            logger.warning("fallback extraction failed for %s: %s", company.name, exc)
+
     # ------------------------------------------------------------------
     # Step 6: final extraction
     # ------------------------------------------------------------------
@@ -116,6 +161,7 @@ class Pipeline:
         company: Company,
         domain_evidence: DomainEvidence,
         resolution: EntityResolution,
+        best_effort: bool = False,
     ) -> ExtractionResult:
         payload = {
             "company": {
@@ -127,13 +173,15 @@ class Pipeline:
             "evidence": [self._prompt_evidence(p) for p in domain_evidence.pages],
             "resolution_explanation": resolution.explanation,
             "site_type": resolution.site_type,
+            "best_effort": best_effort,
+            "prompt_version": 3,  # bump when SYSTEM_EXTRACTION changes (busts stale cache)
         }
         return self.cache.get_or_compute(
             "extraction",
             payload,
             lambda: self.llm.complete_json(
                 SYSTEM_EXTRACTION,
-                _extraction_prompt(payload, self.settings.prompt_text_chars),
+                _extraction_prompt(payload, self.settings.prompt_text_chars, best_effort),
                 ExtractionResult,
             ),
             model=ExtractionResult,
@@ -198,6 +246,7 @@ class Pipeline:
                     len(resolutions),
                     self.settings.entity_match_threshold,
                 )
+                self._fallback_extract(company, result, resolutions)
                 return result
 
             domain_evidence, resolution = best
@@ -292,14 +341,25 @@ site_type is "official" only when the page/domain provides evidence that it is o
 company itself; otherwise classify it as "third_party"."""
 
 
-def _extraction_prompt(payload: dict, prompt_text_chars: int) -> str:
+def _extraction_prompt(payload: dict, prompt_text_chars: int, best_effort: bool = False) -> str:
     evidence = _truncated_evidence(payload["evidence"], prompt_text_chars)
+    if best_effort:
+        source = (
+            "BEST-EFFORT SOURCE: this is a third-party/reference page (NOT the company's own "
+            "website). Use it only to determine what the company does and who its customers are. "
+            '"website" MUST be null.'
+        )
+    else:
+        source = (
+            f"MATCHED WEBSITE: {payload['domain']} "
+            f"(site type: {payload['site_type'] or 'unknown'})"
+        )
     return f"""TARGET COMPANY
 - Legal name: {payload['company']['name']}
 - City: {payload['company']['city'] or 'n/a'}
 - Address: {payload['company']['address'] or 'n/a'}
 
-MATCHED WEBSITE: {payload['domain']} (site type: {payload['site_type'] or 'unknown'})
+{source}
 (Entity-resolution note: {payload['resolution_explanation']})
 
 WEBSITE EVIDENCE

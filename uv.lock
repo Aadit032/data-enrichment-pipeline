@@ -229,6 +229,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "beautifulsoup4" },
+    { name = "exa-py" },
     { name = "httpx" },
     { name = "openai" },
     { name = "playwright" },
@@ -246,6 +247,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "beautifulsoup4", specifier = ">=4.12" },
+    { name = "exa-py", specifier = ">=2.18.1" },
     { name = "httpx", specifier = ">=0.27" },
     { name = "openai", specifier = ">=1.30" },
     { name = "playwright", specifier = ">=1.40" },
@@ -258,6 +260,24 @@ requires-dist = [
 dev = [
     { name = "pytest", specifier = ">=8.0" },
     { name = "ruff", specifier = ">=0.4" },
+]
+
+[[package]]
+name = "exa-py"
+version = "2.18.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "httpcore" },
+    { name = "httpx" },
+    { name = "openai" },
+    { name = "pydantic" },
+    { name = "python-dotenv" },
+    { name = "requests" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/58/34/16d6d767889fdb86735d5be34dcc5db9f456870815bf3d0ddc8d5fdfbfec/exa_py-2.18.1.tar.gz", hash = "sha256:f571f001ca8122b4432ef795b1c5c0afe97b5d20e84d4a1b769b9a888141e9c7", size = 72979, upload-time = "2026-08-14T15:38:33.854Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e1/5f/bdd2230640e2792b3048e69bbb70ab65b8ddf8e51e2ef8880d8cce466a1f/exa_py-2.18.1-py3-none-any.whl", hash = "sha256:98a43c8c598b0360ee8c1a014e7433ae92dcbf58af3d40cac701e145c6e2680e", size = 102929, upload-time = "2026-08-14T15:38:32.531Z" },
 ]
 
 [[package]]

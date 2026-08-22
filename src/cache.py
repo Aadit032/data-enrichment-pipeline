@@ -39,7 +39,7 @@ def _serializable(value: Any) -> Any:
 
 
 class JsonCache:
-    """Thread-safe-ish file cache organised as ``root/<namespace>/<key>.json``."""
+    """File cache organised as ``root/<namespace>/<key>.json``."""
 
     def __init__(self, root: Path) -> None:
         self.root = Path(root)
@@ -60,7 +60,9 @@ class JsonCache:
 
     def set(self, namespace: str, key: str, value: Any) -> None:
         path = self._path(namespace, key)
-        path.write_text(json.dumps(value, default=str, ensure_ascii=False, indent=2), encoding="utf-8")
+        path.write_text(
+            json.dumps(value, default=str, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
 
     def get_or_compute(
         self,
@@ -81,4 +83,10 @@ class JsonCache:
         value = compute()
         serializable = _serializable(value)
         self.set(namespace, key, serializable)
-        return value if model is None else value if isinstance(value, model) else model.model_validate(serializable)
+        return (
+            value
+            if model is None
+            else value
+            if isinstance(value, model)
+            else model.model_validate(serializable)
+        )
